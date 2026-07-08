@@ -68,7 +68,7 @@
 
                 <!-- Spacer -->
 
-                <Pane HBox.hgrow="ALWAYSs"/>
+                <Pane HBox.hgrow="ALWAYS"/>
 
                 <!-- Informasi Login -->
 
