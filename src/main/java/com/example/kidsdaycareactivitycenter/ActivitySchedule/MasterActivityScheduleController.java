@@ -262,7 +262,7 @@ public class MasterActivityScheduleController {
 
         } catch (Exception e) {
 
-            lblStatus.setText("Gagal menyimpan data");
+            lblStatus.setText("Gagal menyimpan dataa");
 
             e.printStackTrace();
 
