@@ -241,8 +241,7 @@ public class MasterActivityScheduleController {
 
             DBConnect db = new DBConnect();
 
-            db.pstat = db.conn.prepareStatement(
-                    "EXEC sp_InsertActivitySchedule ?,?,?,?,?,?,?"
+            db.pstat = db.conn.prepareStatement("EXEC sp_InsertActivitySchedule ?,?,?,?,?,?,?"
             );
 
             db.pstat.setString(1, txtID.getText());
