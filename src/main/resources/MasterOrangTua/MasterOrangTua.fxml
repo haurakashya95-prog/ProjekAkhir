@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.kidsdaycareactivitycenter.MasterOrangTua.MasterOrangTuaController"
+            prefWidth="1366.0"
+            prefHeight="768.0"
+            style="-fx-background-color:#F5F7FB;">
+
+    <!-- ================= HEADER ================= -->
+
+    <top>
+
+        <HBox alignment="CENTER_LEFT"
+              spacing="15"
+              prefHeight="70"
+              style="-fx-background-color:white;
+                     -fx-padding:15 25;
+                     -fx-border-color:#E5E7EB;
+                     -fx-border-width:0 0 1 0;">
+
+            <children>
+
+                <!-- Icon -->
+
+                <Label text="👨‍👩‍👧"
+                       style="-fx-font-size:32;"/>
+
+                <!-- Judul -->
+
+                <VBox spacing="3">
+
+                    <children>
+
+                        <Label text="MASTER DATA ORANG TUA"
+                               style="-fx-font-size:24;
+                                      -fx-font-weight:bold;
+                                      -fx-text-fill:#1F2937;"/>
+
+                        <Label text="Kids Daycare Activity Center"
+                               style="-fx-font-size:13;
+                                      -fx-text-fill:#6B7280;"/>
+
+                    </children>
+
+                </VBox>
+
+                <Pane HBox.hgrow="ALWAYS"/>
+
+                <!-- Pencarian -->
+
+                <Label text="Cari Orang Tua :"
+                       style="-fx-font-weight:bold;"/>
+
+                <TextField fx:id="txtCari"
+                           promptText="Masukkan Nama / No HP"
+                           prefWidth="220"
+                           prefHeight="38"/>
+
+                <Button fx:id="btnCari"
+                        text="Cari"
+                        onAction="#cari"
+                        prefWidth="90"
+                        prefHeight="38"
+                        style="-fx-background-color:#2563EB;
+                               -fx-text-fill:white;
+                               -fx-background-radius:8;
+                               -fx-font-weight:bold;"/>
+
+            </children>
+
+        </HBox>
+
+    </top>
+
+    <!-- ================= CONTENT ================= -->
+
+    <center>
+
+        <HBox spacing="20">
+
+            <padding>
+                <Insets top="20"
+                        right="20"
+                        bottom="20"
+                        left="20"/>
+            </padding>
+
+            <children>
+                <!-- ================= FORM ================= -->
+
+                <VBox prefWidth="360"
+                      spacing="12"
+                      style="-fx-background-color:white;
+                             -fx-background-radius:15;
+                             -fx-padding:20;
+                             -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.12),12,0,0,3);">
+
+                    <children>
+
+                        <Label text="Data Orang Tua"
+                               style="-fx-font-size:20;
+                                      -fx-font-weight:bold;
+                                      -fx-text-fill:#2563EB;"/>
+
+                        <Separator/>
+
+                        <!-- ID -->
+
+                        <Label text="ID Orang Tua"
+                               style="-fx-font-weight:bold;"/>
+
+                        <TextField fx:id="txtID"
+                                   editable="false"
+                                   promptText="Otomatis"/>
+
+                        <!-- Nama -->
+
+                        <Label text="Nama Orang Tua"
+                               style="-fx-font-weight:bold;"/>
+
+                        <TextField fx:id="txtNama"
+                                   promptText="Masukkan Nama Orang Tua"/>
+
+                        <!-- No HP -->
+
+                        <Label text="No. Handphone"
+                               style="-fx-font-weight:bold;"/>
+
+                        <TextField fx:id="txtNoHP"
+                                   promptText="Masukkan Nomor Handphone"/>
+
+                        <!-- Alamat -->
+
+                        <Label text="Alamat"
+                               style="-fx-font-weight:bold;"/>
+
+                        <TextField fx:id="txtAlamat"
+                                   promptText="Masukkan Alamat Orang Tua"/>
+                        <!-- Email -->
+
+                        <Label text="Email"
+                               style="-fx-font-weight:bold;"/>
+
+                        <TextField fx:id="txtEmail"
+                                   promptText="Masukkan Email"/>
+
+                        <Separator/>
+
+                        <!-- ================= BUTTON ================= -->
+
+                        <GridPane hgap="10"
+                                  vgap="10">
+
+                            <columnConstraints>
+
+                                <ColumnConstraints percentWidth="50"/>
+
+                                <ColumnConstraints percentWidth="50"/>
+
+                            </columnConstraints>
+
+                            <children>
+
+                                <!-- Tambah -->
+
+                                <Button fx:id="btnTambah"
+                                        text="➕ Tambah"
+                                        onAction="#batal"
+                                        prefWidth="150"
+                                        prefHeight="40"
+                                        style="-fx-background-color:#3B82F6;
+                                               -fx-text-fill:white;
+                                               -fx-font-weight:bold;
+                                               -fx-background-radius:8;"
+                                        GridPane.columnIndex="0"
+                                        GridPane.rowIndex="0"/>
+
+                                <!-- Simpan -->
+
+                                <Button fx:id="btnSimpan"
+                                        text="💾 Simpan"
+                                        onAction="#simpan"
+                                        prefWidth="150"
+                                        prefHeight="40"
+                                        style="-fx-background-color:#22C55E;
+                                               -fx-text-fill:white;
+                                               -fx-font-weight:bold;
+                                               -fx-background-radius:8;"
+                                        GridPane.columnIndex="1"
+                                        GridPane.rowIndex="0"/>
+
+                                <!-- Edit -->
+
+                                <Button fx:id="btnUbah"
+                                        text="✏ Edit"
+                                        onAction="#ubah"
+                                        prefWidth="150"
+                                        prefHeight="40"
+                                        style="-fx-background-color:#F59E0B;
+                                               -fx-text-fill:white;
+                                               -fx-font-weight:bold;
+                                               -fx-background-radius:8;"
+                                        GridPane.columnIndex="0"
+                                        GridPane.rowIndex="1"/>
+
+                                <!-- Hapus -->
+
+                                <Button fx:id="btnHapus"
+                                        text="🗑 Hapus"
+                                        onAction="#hapus"
+                                        prefWidth="150"
+                                        prefHeight="40"
+                                        style="-fx-background-color:#EF4444;
+                                               -fx-text-fill:white;
+                                               -fx-font-weight:bold;
+                                               -fx-background-radius:8;"
+                                        GridPane.columnIndex="1"
+                                        GridPane.rowIndex="1"/>
+
+                                <!-- Refresh -->
+
+                                <Button fx:id="btnRefresh"
+                                        text="🔄 Refresh"
+                                        onAction="#batal"
+                                        prefWidth="310"
+                                        prefHeight="40"
+                                        style="-fx-background-color:#64748B;
+                                               -fx-text-fill:white;
+                                               -fx-font-weight:bold;
+                                               -fx-background-radius:8;"
+                                        GridPane.columnSpan="2"
+                                        GridPane.rowIndex="2"/>
+
+                            </children>
+
+                        </GridPane>
+
+                    </children>
+
+                </VBox>
+
+                <!-- ================= TABEL DATA ================= -->
+
+                <VBox HBox.hgrow="ALWAYS"
+                      spacing="12"
+                      style="-fx-background-color:white;
+                             -fx-background-radius:15;
+                             -fx-padding:20;
+                             -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.12),12,0,0,3);">
+
+                    <children>
+
+                        <Label text="Daftar Data Orang Tua"
+                               style="-fx-font-size:20;
+                                      -fx-font-weight:bold;
+                                      -fx-text-fill:#2563EB;"/>
+
+                        <Separator/>
+
+                        <TableView fx:id="tblOrangTua"
+                                   VBox.vgrow="ALWAYS"
+                                   prefHeight="500">
+
+                            <columns>
+
+                                <TableColumn fx:id="colID"
+                                             text="ID Orang Tua"
+                                             prefWidth="110"/>
+
+                                <TableColumn fx:id="colNama"
+                                             text="Nama Orang Tua"
+                                             prefWidth="180"/>
+
+                                <TableColumn fx:id="colNoHP"
+                                             text="No. HP"
+                                             prefWidth="140"/>
+
+                                <TableColumn fx:id="colAlamat"
+                                             text="Alamat"
+                                             prefWidth="220"/>
+
+                                <TableColumn fx:id="colEmail"
+                                             text="Email"
+                                             prefWidth="220"/>
+
+                            </columns>
+
+                        </TableView>
+
+                        <Separator/>
+
+                        <HBox alignment="CENTER_LEFT"
+                              spacing="15">
+
+                            <children>
+
+                                <Label text="Total Data :"
+                                       style="-fx-font-weight:bold;"/>
+
+                                <Label fx:id="lblTotalData"
+                                       text="0"
+                                       style="-fx-font-size:14;
+                                              -fx-font-weight:bold;
+                                              -fx-text-fill:#2563EB;"/>
+
+                                <Pane HBox.hgrow="ALWAYS"/>
+
+                                <Label text="Status :"
+                                       style="-fx-font-weight:bold;"/>
+
+                                <Label fx:id="lblStatus"
+                                       text="Siap Digunakan"
+                                       style="-fx-font-size:14;
+                                              -fx-font-weight:bold;
+                                              -fx-text-fill:#16A34A;"/>
+
+                                <Button fx:id="btnKembali"
+                                        text="⬅ Kembali"
+                                        onAction="#kembali"
+                                        prefWidth="120"
+                                        prefHeight="38"
+                                        style="-fx-background-color:#475569;
+                                               -fx-text-fill:white;
+                                               -fx-font-weight:bold;
+                                               -fx-background-radius:8;"/>
+
+                            </children>
+
+                        </HBox>
+
+                    </children>
+
+                </VBox>
+
+            </children>
+
+        </HBox>
+
+    </center>
+
+</BorderPane>

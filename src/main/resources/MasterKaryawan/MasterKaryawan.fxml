@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.kidsdaycareactivitycenter.MasterKaryawan.MasterKaryawanController"
+            prefWidth="1200.0"
+            prefHeight="700.0"
+            style="-fx-background-color:#F5F7FA;">
+
+    <children>
+
+        <!-- ===================== JUDUL ===================== -->
+
+        <Label layoutX="25"
+               layoutY="18"
+               text="MASTER DATA KARYAWAN"
+               style="-fx-font-size:28px;
+                      -fx-font-weight:bold;
+                      -fx-text-fill:#2C3E50;"/>
+
+        <!-- ===================== CARD FORM ===================== -->
+
+        <VBox layoutX="20"
+              layoutY="65"
+              prefWidth="330"
+              prefHeight="600"
+              spacing="10"
+              style="-fx-background-color:white;
+                     -fx-padding:18;
+                     -fx-background-radius:12;
+                     -fx-border-radius:12;
+                     -fx-border-color:#D6DBDF;">
+
+            <Label text="Data Karyawan"
+                   style="-fx-font-size:18px;
+                          -fx-font-weight:bold;
+                          -fx-text-fill:#2563EB;"/>
+
+            <Separator/>
+
+            <Label text="ID Karyawan"/>
+
+            <TextField fx:id="txtID"
+                       editable="false"
+                       prefWidth="290"
+                       promptText="Otomatis"/>
+
+            <Label text="Nama Karyawan"/>
+
+            <TextField fx:id="txtNama"
+                       prefWidth="290"
+                       promptText="Masukkan Nama Karyawan"/>
+
+            <Label text="Username"/>
+
+            <TextField fx:id="txtUsername"
+                       prefWidth="290"
+                       promptText="Masukkan Username"/>
+
+            <Label text="Password"/>
+
+            <PasswordField fx:id="txtPassword"
+                           prefWidth="290"
+                           promptText="Masukkan Password"/>
+
+            <Label text="Role"/>
+
+            <ComboBox fx:id="cmbRole"
+                      prefWidth="290"
+                      promptText="Pilih Role"/>
+
+            <Label text="Status"/>
+
+            <ComboBox fx:id="cmbStatus"
+                      prefWidth="290"
+                      promptText="Pilih Status"/>
+
+            <!-- ================= BUTTON ================= -->
+
+            <HBox spacing="8">
+
+                <Button fx:id="btnSimpan"
+                        text="💾 Simpan"
+                        prefWidth="145"
+                        prefHeight="38"
+                        onAction="#simpan"
+                        style="-fx-background-color:#22C55E;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;
+                               -fx-background-radius:8;"/>
+
+                <Button fx:id="btnUbah"
+                        text="✏ Ubah"
+                        prefWidth="145"
+                        prefHeight="38"
+                        onAction="#ubah"
+                        style="-fx-background-color:#F59E0B;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;
+                               -fx-background-radius:8;"/>
+
+            </HBox>
+
+            <HBox spacing="8">
+
+                <Button fx:id="btnHapus"
+                        text="🗑 Hapus"
+                        prefWidth="145"
+                        prefHeight="38"
+                        onAction="#hapus"
+                        style="-fx-background-color:#EF4444;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;
+                               -fx-background-radius:8;"/>
+
+                <Button fx:id="btnBatal"
+                        text="↺ Batal"
+                        prefWidth="145"
+                        prefHeight="38"
+                        onAction="#batal"
+                        style="-fx-background-color:#64748B;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;
+                               -fx-background-radius:8;"/>
+
+            </HBox>
+
+            <Button fx:id="btnKembali"
+                    text="⬅ Kembali"
+                    prefWidth="298"
+                    prefHeight="40"
+                    onAction="#kembali"
+                    style="-fx-background-color:#2563EB;
+                           -fx-text-fill:white;
+                           -fx-font-size:14px;
+                           -fx-font-weight:bold;
+                           -fx-background-radius:8;"/>
+
+        </VBox>
+
+        <!-- ================= PANEL KANAN ================= -->
+
+        <VBox layoutX="370"
+              layoutY="65"
+              prefWidth="800"
+              prefHeight="600"
+              spacing="12"
+              style="-fx-background-color:white;
+                     -fx-padding:18;
+                     -fx-background-radius:12;
+                     -fx-border-radius:12;
+                     -fx-border-color:#D6DBDF;">
+
+            <Label text="Daftar Data Karyawan"
+                   style="-fx-font-size:18px;
+                          -fx-font-weight:bold;
+                          -fx-text-fill:#2563EB;"/>
+
+            <Separator/>
+
+            <!-- ================= PENCARIAN ================= -->
+
+            <HBox spacing="10"
+                  alignment="CENTER_LEFT">
+
+                <Label text="Cari Data"
+                       style="-fx-font-weight:bold;"/>
+
+                <TextField fx:id="txtCari"
+                           prefWidth="320"
+                           promptText="Cari ID / Username"/>
+
+                <Button fx:id="btnCari"
+                        text="🔍 Cari"
+                        prefWidth="100"
+                        onAction="#cari"
+                        style="-fx-background-color:#2563EB;
+                               -fx-text-fill:white;
+                               -fx-font-weight:bold;
+                               -fx-background-radius:8;"/>
+
+            </HBox>
+
+            <!-- ================= TABLE ================= -->
+
+            <TableView fx:id="tblKaryawan"
+                       VBox.vgrow="ALWAYS"
+                       prefWidth="760"
+                       prefHeight="430"
+                       style="-fx-background-radius:10;
+                              -fx-border-radius:10;
+                              -fx-border-color:#D6DBDF;">
+
+                <columns>
+
+                    <TableColumn fx:id="colID"
+                                 text="ID"
+                                 prefWidth="90"/>
+
+                    <TableColumn fx:id="colNama"
+                                 text="Nama Karyawan"
+                                 prefWidth="200"/>
+
+                    <TableColumn fx:id="colUsername"
+                                 text="Username"
+                                 prefWidth="160"/>
+
+                    <TableColumn fx:id="colRole"
+                                 text="Role"
+                                 prefWidth="150"/>
+
+                    <TableColumn fx:id="colStatus"
+                                 text="Status"
+                                 prefWidth="160"/>
+
+                </columns>
+
+            </TableView>
+
+            <!-- ================= INFORMASI ================= -->
+
+            <Separator/>
+
+            <HBox alignment="CENTER_LEFT"
+                  spacing="15">
+
+                <Label text="Total Data :"
+                       style="-fx-font-size:13px;
+                              -fx-font-weight:bold;"/>
+
+                <Label fx:id="lblTotalData"
+                       text="0"
+                       style="-fx-font-size:14px;
+                              -fx-font-weight:bold;
+                              -fx-text-fill:#2563EB;"/>
+
+                <Pane HBox.hgrow="ALWAYS"/>
+
+                <Label text="Status :"
+                       style="-fx-font-size:13px;
+                              -fx-font-weight:bold;"/>
+
+                <Label fx:id="lblStatus"
+                       text="Siap Digunakan"
+                       style="-fx-font-size:14px;
+                              -fx-font-weight:bold;
+                              -fx-text-fill:#16A34A;"/>
+
+            </HBox>
+
+        </VBox>
+
+    </children>
+
+</AnchorPane>

@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.kidsdaycareactivitycenter.DashboardCaregiver.DashboardCaregiverController"
+            prefWidth="900.0"
+            prefHeight="600.0"
+            style="-fx-background-color:#F4F7FC;">
+
+    <children>
+
+        <!-- ================= BACKGROUND ================= -->
+
+        <Pane layoutX="20"
+              layoutY="20"
+              prefWidth="860"
+              prefHeight="560"
+              style="-fx-background-color:white;
+                     -fx-background-radius:15;
+                     -fx-border-radius:15;
+                     -fx-border-color:#D6E4F0;
+                     -fx-border-width:1;" />
+
+        <!-- ================= HEADER ================= -->
+
+        <Pane layoutX="20"
+              layoutY="20"
+              prefWidth="860"
+              prefHeight="90"
+              style="-fx-background-color:linear-gradient(to right,#2563EB,#60A5FA);
+                     -fx-background-radius:15 15 0 0;">
+
+            <children>
+
+                <Label
+                        layoutX="190"
+                        layoutY="18"
+                        text="KIDS DAYCARE ACTIVITY CENTER"
+                        style="-fx-font-size:24px;
+                               -fx-font-weight:bold;
+                               -fx-text-fill:white;" />
+
+                <Label
+                        layoutX="315"
+                        layoutY="55"
+                        text="DASHBOARD CAREGIVER"
+                        style="-fx-font-size:15px;
+                               -fx-font-weight:bold;
+                               -fx-text-fill:white;" />
+
+            </children>
+
+        </Pane>
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <Label
+                layoutX="45"
+                layoutY="130"
+                text="OPERASIONAL"
+                style="-fx-font-size:16px;
+                       -fx-font-weight:bold;" />
+
+        <Separator
+                layoutX="40"
+                layoutY="155"
+                prefWidth="220" />
+
+        <!-- CHECK IN -->
+
+        <Button
+                fx:id="btnCheckIn"
+                layoutX="45"
+                layoutY="175"
+                prefWidth="210"
+                prefHeight="40"
+                text="Check In Anak"
+                onAction="#checkIn"
+                style="-fx-background-color:#2563EB;
+                       -fx-background-radius:8;
+                       -fx-text-fill:white;
+                       -fx-font-size:14px;
+                       -fx-font-weight:bold;" />
+
+        <!-- DAILY ACTIVITY -->
+
+        <Button
+                fx:id="btnDailyActivity"
+                layoutX="45"
+                layoutY="230"
+                prefWidth="210"
+                prefHeight="40"
+                text="Daily Activity"
+                onAction="#dailyActivity"
+                style="-fx-background-color:#16A34A;
+                       -fx-background-radius:8;
+                       -fx-text-fill:white;
+                       -fx-font-size:14px;
+                       -fx-font-weight:bold;" />
+
+        <!-- CHECK OUT -->
+
+        <Button
+                fx:id="btnCheckOut"
+                layoutX="45"
+                layoutY="285"
+                prefWidth="210"
+                prefHeight="40"
+                text="Check Out Anak"
+                onAction="#checkOut"
+                style="-fx-background-color:#F59E0B;
+                       -fx-background-radius:8;
+                       -fx-text-fill:white;
+                       -fx-font-size:14px;
+                       -fx-font-weight:bold;" />
+
+        <!-- ================= CARD STATISTIK ================= -->
+
+        <Pane layoutX="290"
+              layoutY="125"
+              prefWidth="520"
+              prefHeight="90"
+              style="-fx-background-color:#E8F0FE;
+                     -fx-background-radius:12;">
+
+            <children>
+
+                <!-- Total Anak -->
+
+                <Label layoutX="20"
+                       layoutY="12"
+                       text="Total Anak Hari Ini"
+                       style="-fx-font-size:14px;
+                              -fx-font-weight:bold;" />
+
+                <Label fx:id="lblTotalAnak"
+                       layoutX="40"
+                       layoutY="40"
+                       text="0"
+                       style="-fx-font-size:30px;
+                              -fx-font-weight:bold;
+                              -fx-text-fill:#2563EB;" />
+
+                <!-- Check In -->
+
+                <Label layoutX="155"
+                       layoutY="12"
+                       text="Check In"
+                       style="-fx-font-size:14px;
+                              -fx-font-weight:bold;" />
+
+                <Label fx:id="lblCheckIn"
+                       layoutX="175"
+                       layoutY="40"
+                       text="0"
+                       style="-fx-font-size:30px;
+                              -fx-font-weight:bold;
+                              -fx-text-fill:#16A34A;" />
+
+                <!-- Belum Check In -->
+
+                <Label layoutX="270"
+                       layoutY="12"
+                       text="Belum Check In"
+                       style="-fx-font-size:14px;
+                              -fx-font-weight:bold;" />
+
+                <Label fx:id="lblBelumCheckIn"
+                       layoutX="320"
+                       layoutY="40"
+                       text="0"
+                       style="-fx-font-size:30px;
+                              -fx-font-weight:bold;
+                              -fx-text-fill:#F59E0B;" />
+
+                <!-- Check Out -->
+
+                <Label layoutX="420"
+                       layoutY="12"
+                       text="Check Out"
+                       style="-fx-font-size:14px;
+                              -fx-font-weight:bold;" />
+
+                <Label fx:id="lblCheckOut"
+                       layoutX="440"
+                       layoutY="40"
+                       text="0"
+                       style="-fx-font-size:30px;
+                              -fx-font-weight:bold;
+                              -fx-text-fill:#EF4444;" />
+
+            </children>
+
+        </Pane>
+
+        <!-- ================= PENCARIAN ================= -->
+
+        <Label layoutX="290"
+               layoutY="235"
+               text="Cari Anak"
+               style="-fx-font-size:15px;
+                      -fx-font-weight:bold;" />
+
+        <TextField fx:id="txtCari"
+                   layoutX="370"
+                   layoutY="230"
+                   prefWidth="260"
+                   prefHeight="35"
+                   promptText="Masukkan Nama Anak..." />
+
+        <Button fx:id="btnCari"
+                layoutX="645"
+                layoutY="230"
+                prefWidth="80"
+                prefHeight="35"
+                text="Cari"
+                onAction="#cari"
+                style="-fx-background-color:#2563EB;
+                       -fx-background-radius:8;
+                       -fx-text-fill:white;
+                       -fx-font-weight:bold;" />
+
+        <!-- ================= TABLE DATA ================= -->
+
+        <Label layoutX="290"
+               layoutY="285"
+               text="Data Anak Hari Ini"
+               style="-fx-font-size:16px;
+                      -fx-font-weight:bold;" />
+
+        <TableView fx:id="tblAnak"
+                   layoutX="290"
+                   layoutY="315"
+                   prefWidth="540"
+                   prefHeight="170">
+
+            <columns>
+
+                <TableColumn fx:id="colID"
+                             prefWidth="80"
+                             text="ID Anak"/>
+
+                <TableColumn fx:id="colNama"
+                             prefWidth="180"
+                             text="Nama Anak"/>
+
+                <TableColumn fx:id="colCheckIn"
+                             prefWidth="100"
+                             text="Check In"/>
+
+                <TableColumn fx:id="colStatus"
+                             prefWidth="90"
+                             text="Status"/>
+
+                <TableColumn fx:id="colAksi"
+                             prefWidth="90"
+                             text="Aksi"/>
+
+            </columns>
+
+        </TableView>
+
+        <!-- ================= FOOTER ================= -->
+
+        <Separator layoutX="20"
+                   layoutY="520"
+                   prefWidth="860"/>
+
+        <Label fx:id="lblCaregiver"
+               layoutX="35"
+               layoutY="535"
+               text="Caregiver : -"
+               style="-fx-font-size:13px;
+                      -fx-font-weight:bold;
+                      -fx-text-fill:#374151;"/>
+
+        <Label fx:id="lblStatus"
+               layoutX="35"
+               layoutY="555"
+               text="Status : Online"
+               style="-fx-font-size:12px;
+                      -fx-text-fill:#16A34A;"/>
+
+        <Button fx:id="btnLogout"
+                layoutX="730"
+                layoutY="530"
+                prefWidth="100"
+                prefHeight="35"
+                text="Logout"
+                onAction="#logout"
+                style="-fx-background-color:#EF4444;
+                       -fx-background-radius:8;
+                       -fx-text-fill:white;
+                       -fx-font-size:14px;
+                       -fx-font-weight:bold;"/>
+
+    </children>
+
+</AnchorPane>
+

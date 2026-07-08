@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.kidsdaycareactivitycenter.MasterAnak.MasterAnakController"
+            prefWidth="1366.0"
+            prefHeight="768.0"
+            style="-fx-background-color:#F5F7FB;">
+
+
+    <!-- ================= HEADER ================= -->
+
+    <top>
+
+        <HBox alignment="CENTER_LEFT"
+              spacing="15"
+              prefHeight="70"
+              style="-fx-background-color:white;
+                     -fx-padding:15 25;
+                     -fx-border-color:#E5E7EB;
+                     -fx-border-width:0 0 1 0;">
+
+            <children>
+
+                <Label text="👶"
+                       style="-fx-font-size:32;"/>
+
+                <VBox spacing="3">
+
+                    <children>
+
+                        <Label text="MASTER DATA ANAK"
+                               style="-fx-font-size:24;
+                                      -fx-font-weight:bold;
+                                      -fx-text-fill:#1F2937;"/>
+
+                        <Label text="Kids Daycare Activity Center"
+                               style="-fx-font-size:13;
+                                      -fx-text-fill:#6B7280;"/>
+
+                    </children>
+
+                </VBox>
+
+                <Pane HBox.hgrow="ALWAYS"/>
+
+                <Label text="Cari ID Anak :"
+                       style="-fx-font-weight:bold;"/>
+
+                <TextField fx:id="txtCariId"
+                           promptText="Masukkan ID Anak"
+                           prefWidth="220"
+                           prefHeight="38"/>
+
+                <Button fx:id="btnCari"
+                        text="Cari"
+                        prefWidth="90"
+                        prefHeight="38"
+                        style="-fx-background-color:#2563EB;
+                               -fx-text-fill:white;
+                               -fx-background-radius:8;
+                               -fx-font-weight:bold;"/>
+
+            </children>
+
+        </HBox>
+
+    </top>
+
+    <!-- ================= CONTENT ================= -->
+
+    <center>
+
+        <HBox spacing="20">
+
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <children>
+
+                <!-- ================= FORM ================= -->
+
+                <VBox prefWidth="360"
+                      spacing="12"
+                      style="-fx-background-color:white;
+                             -fx-background-radius:15;
+                             -fx-padding:20;
+                             -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.12),12,0,0,3);">
+
+                    <children>
+
+                        <Label text="Data Anak"
+                               style="-fx-font-size:20;
+                                      -fx-font-weight:bold;
+                                      -fx-text-fill:#2563EB;"/>
+
+                        <Separator/>
+
+                        <Label text="ID Anak"
+                               style="-fx-font-weight:bold;"/>
+
+                        <TextField fx:id="txtIdAnak"
+                                   editable="false"
+                                   promptText="Otomatis"/>
+
+                        <Label text="ID Orang Tua"
+                               style="-fx-font-weight:bold;"/>
+
+                        <ComboBox fx:id="cbOrangTua"
+                                  prefHeight="38"/>
+
+                        <Label text="Nama Anak"
+                               style="-fx-font-weight:bold;"/>
+
+                        <TextField fx:id="txtNamaAnak"
+                                   promptText="Masukkan Nama Anak"/>
+
+                        <Label text="Tanggal Lahir"
+                               style="-fx-font-weight:bold;"/>
+
+                        <DatePicker fx:id="dpTanggalLahir"/>
+
+                        <Label text="Jenis Kelamin"
+                               style="-fx-font-weight:bold;"/>
+
+                        <ComboBox fx:id="cbJenisKelamin"
+                                  prefHeight="38"/>
+
+
+                        <Label text="Kategori Anak"
+                               style="-fx-font-weight:bold;"/>
+
+                        <ComboBox fx:id="cbKategori"
+                                  promptText="Pilih Kategori"
+                                  prefHeight="38"/>
+
+                        <Label text="Catatan Khusus"
+                               style="-fx-font-weight:bold;"/>
+
+                        <TextArea fx:id="txtCatatan"
+                                  promptText="Masukkan Catatan Khusus Anak"
+                                  prefHeight="90"
+                                  wrapText="true"/>
+
+                        <Separator/>
+
+                        <!-- ================= BUTTON ================= -->
+
+                        <GridPane hgap="10"
+                                  vgap="10">
+
+                            <columnConstraints>
+                                <ColumnConstraints percentWidth="50"/>
+                                <ColumnConstraints percentWidth="50"/>
+                            </columnConstraints>
+
+                            <children>
+
+                                <Button fx:id="btnTambah"
+                                        text="➕ Tambah"
+                                        prefWidth="150"
+                                        prefHeight="40"
+                                        style="-fx-background-color:#3B82F6;
+                                               -fx-text-fill:white;
+                                               -fx-font-weight:bold;
+                                               -fx-background-radius:8;"
+                                        GridPane.columnIndex="0"
+                                        GridPane.rowIndex="0"/>
+
+                                <Button fx:id="btnSimpan"
+                                        text="💾 Simpan"
+                                        prefWidth="150"
+                                        prefHeight="40"
+                                        style="-fx-background-color:#22C55E;
+                                               -fx-text-fill:white;
+                                               -fx-font-weight:bold;
+                                               -fx-background-radius:8;"
+                                        GridPane.columnIndex="1"
+                                        GridPane.rowIndex="0"/>
+
+                                <Button fx:id="btnEdit"
+                                        text="✏ Edit"
+                                        prefWidth="150"
+                                        prefHeight="40"
+                                        style="-fx-background-color:#F59E0B;
+                                               -fx-text-fill:white;
+                                               -fx-font-weight:bold;
+                                               -fx-background-radius:8;"
+                                        GridPane.columnIndex="0"
+                                        GridPane.rowIndex="1"/>
+
+                                <Button fx:id="btnHapus"
+                                        text="🗑 Hapus"
+                                        prefWidth="150"
+                                        prefHeight="40"
+                                        style="-fx-background-color:#EF4444;
+                                               -fx-text-fill:white;
+                                               -fx-font-weight:bold;
+                                               -fx-background-radius:8;"
+                                        GridPane.columnIndex="1"
+                                        GridPane.rowIndex="1"/>
+
+                                <Button fx:id="btnKembali"
+                                        text="⬅ Kembali"
+                                        prefWidth="310"
+                                        prefHeight="40"
+                                        onAction="#kembali"
+                                        style="-fx-background-color:#2563EB;
+                                        -fx-text-fill:white;
+                                        -fx-font-weight:bold;
+                                        -fx-background-radius:8;"
+                                        GridPane.columnSpan="2"
+                                        GridPane.rowIndex="2"/>
+
+                            </children>
+
+                        </GridPane>
+
+                    </children>
+
+                </VBox>
+
+                <!-- ================= TABEL ================= -->
+
+                <VBox spacing="15"
+                      HBox.hgrow="ALWAYS"
+                      style="-fx-background-color:white;
+                             -fx-background-radius:15;
+                             -fx-padding:20;
+                             -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.12),12,0,0,3);">
+
+                    <children>
+
+                        <Label text="Daftar Data Anak"
+                               style="-fx-font-size:20;
+                                      -fx-font-weight:bold;
+                                      -fx-text-fill:#2563EB;"/>
+
+                        <Separator/>
+
+                        <TableView fx:id="tblAnak"
+                                   VBox.vgrow="ALWAYS">
+
+                            <columns>
+
+                                <TableColumn fx:id="colIdAnak"
+                                             text="ID Anak"
+                                             prefWidth="100"/>
+
+                                <TableColumn fx:id="colIdOrangTua"
+                                             text="ID Orang Tua"
+                                             prefWidth="120"/>
+
+                                <TableColumn fx:id="colNamaAnak"
+                                             text="Nama Anak"
+                                             prefWidth="170"/>
+
+                                <TableColumn fx:id="colTanggalLahir"
+                                             text="Tanggal Lahir"
+                                             prefWidth="130"/>
+
+                                <TableColumn fx:id="colJenisKelamin"
+                                             text="Jenis Kelamin"
+                                             prefWidth="120"/>
+
+                                <TableColumn fx:id="colKategori"
+                                             text="Kategori"
+                                             prefWidth="120"/>
+
+                                <TableColumn fx:id="colCatatan"
+                                             text="Catatan Khusus"
+                                             prefWidth="250"/>
+
+                            </columns>
+
+                        </TableView>
+
+                        <Label text="Total Data :"
+                               style="-fx-font-size:13;
+              -fx-font-weight:bold;
+              -fx-text-fill:#64748B;"/>
+
+                        <Label fx:id="lblTotalData"
+                               text="0 Data"
+                               style="-fx-font-size:14;
+              -fx-text-fill:#2563EB;
+              -fx-font-weight:bold;"/>
+
+                    </children>
+
+                </VBox>
+
+            </children>
+
+        </HBox>
+
+    </center>
+
+</BorderPane>

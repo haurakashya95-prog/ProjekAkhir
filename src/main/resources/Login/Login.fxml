@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0"
+            prefWidth="900.0"
+            style="-fx-background-color:#EAF4FF;"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.kidsdaycareactivitycenter.Login.LoginController">
+
+    <children>
+
+        <!-- Background -->
+        <Pane layoutX="70"
+              layoutY="45"
+              prefHeight="510"
+              prefWidth="760"
+              style="-fx-background-color:white;
+                     -fx-background-radius:20;
+                     -fx-border-radius:20;
+                     -fx-border-color:#D6E4F0;" />
+
+        <!-- Panel Kiri -->
+        <Pane layoutX="70"
+              layoutY="45"
+              prefHeight="510"
+              prefWidth="320"
+              style="-fx-background-color:#2563EB;
+                     -fx-background-radius:20 0 0 20;">
+
+            <children>
+
+                <Label layoutX="55"
+                       layoutY="70"
+                       style="-fx-font-size:48;"
+                       text="👶🧸🌈"/>
+
+                <Label layoutX="40"
+                       layoutY="150"
+                       style="-fx-font-size:26;
+                              -fx-font-weight:bold;
+                              -fx-text-fill:white;"
+                       text="KIDS DAYCARE"/>
+
+                <Label layoutX="20"
+                       layoutY="190"
+                       style="-fx-font-size:22;
+                              -fx-font-weight:bold;
+                              -fx-text-fill:white;"
+                       text="ACTIVITY CENTER"/>
+
+                <Label layoutX="30"
+                       layoutY="270"
+                       prefWidth="260"
+                       wrapText="true"
+                       style="-fx-font-size:18;
+                              -fx-text-fill:white;"
+                       text="Safe • Fun • Learning"/>
+
+                <Label layoutX="30"
+                       layoutY="315"
+                       prefWidth="260"
+                       wrapText="true"
+                       style="-fx-font-size:16;
+                              -fx-text-fill:white;"
+                       text="Every Child Deserves a Happy Childhood."/>
+
+            </children>
+
+        </Pane>
+
+        <!-- Panel Kanan -->
+        <Pane layoutX="390"
+              layoutY="45"
+              prefHeight="510"
+              prefWidth="440"
+              style="-fx-background-color:white;
+                     -fx-background-radius:0 20 20 0;">
+
+            <children>
+
+                <Label layoutX="70"
+                       layoutY="50"
+                       style="-fx-font-size:28;
+                              -fx-font-weight:bold;
+                              -fx-text-fill:#2563EB;"
+                       text="WELCOME"/>
+
+                <Label layoutX="70"
+                       layoutY="95"
+                       style="-fx-font-size:15;
+                              -fx-text-fill:#6B7280;"
+                       text="Sign in to continue using the system"/>
+
+                <!-- Username -->
+                <Label layoutX="60"
+                       layoutY="145"
+                       text="Username"
+                       style="-fx-font-size:14;
+                              -fx-font-weight:bold;"/>
+
+                <TextField fx:id="txtUsername"
+                           layoutX="60"
+                           layoutY="170"
+                           prefWidth="320"
+                           prefHeight="40"
+                           promptText="Masukkan Username"
+                           style="-fx-background-radius:10;
+                                  -fx-border-radius:10;
+                                  -fx-border-color:#D1D5DB;
+                                  -fx-font-size:14;"/>
+
+                <!-- Password -->
+                <Label layoutX="60"
+                       layoutY="225"
+                       text="Password"
+                       style="-fx-font-size:14;
+                              -fx-font-weight:bold;"/>
+
+                <PasswordField fx:id="txtPassword"
+                               layoutX="60"
+                               layoutY="250"
+                               prefWidth="320"
+                               prefHeight="40"
+                               promptText="Masukkan Password"
+                               style="-fx-background-radius:10;
+                                      -fx-border-radius:10;
+                                      -fx-border-color:#D1D5DB;
+                                      -fx-font-size:14;"/>
+
+                <!-- Login -->
+                <Button fx:id="btnLogin"
+                        layoutX="60"
+                        layoutY="325"
+                        prefWidth="320"
+                        prefHeight="42"
+                        text="LOGIN"
+                        onAction="#login"
+                        style="-fx-background-color:#22C55E;
+                               -fx-background-radius:10;
+                               -fx-font-size:15;
+                               -fx-font-weight:bold;
+                               -fx-text-fill:white;"/>
+
+                <!-- Exit -->
+                <Button fx:id="btnExit"
+                        layoutX="60"
+                        layoutY="380"
+                        prefWidth="320"
+                        prefHeight="42"
+                        text="EXIT"
+                        onAction="#exit"
+                        style="-fx-background-color:#EF4444;
+                               -fx-background-radius:10;
+                               -fx-font-size:15;
+                               -fx-font-weight:bold;
+                               -fx-text-fill:white;"/>
+
+            </children>
+
+        </Pane>
+
+    </children>
+
+</AnchorPane>
