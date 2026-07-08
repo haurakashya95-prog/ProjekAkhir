@@ -254,7 +254,7 @@ public class MasterActivityScheduleController {
 
             db.pstat.executeUpdate();
 
-            lblStatus.setText("Data berhasil disimpann");
+            lblStatus.setText("Data berhasil disimpan");
 
             loadTable();
 
