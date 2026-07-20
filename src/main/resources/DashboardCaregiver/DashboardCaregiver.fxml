@@ -1,304 +1,187 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.*?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.kidsdaycareactivitycenter.DashboardCaregiver.DashboardCaregiverController"
-            prefWidth="900.0"
-            prefHeight="600.0"
-            style="-fx-background-color:#F4F7FC;">
+            prefWidth="1250"
+            prefHeight="720"
+            style="-fx-background-color:#F5F7FB;">
 
     <children>
 
-        <!-- ================= BACKGROUND ================= -->
+        <VBox layoutX="15" layoutY="15"
+              prefWidth="1220" prefHeight="690"
+              spacing="15"
+              style="-fx-background-color:white;-fx-background-radius:18;-fx-border-color:#E5E7EB;-fx-border-radius:18;">
 
-        <Pane layoutX="20"
-              layoutY="20"
-              prefWidth="860"
-              prefHeight="560"
-              style="-fx-background-color:white;
-                     -fx-background-radius:15;
-                     -fx-border-radius:15;
-                     -fx-border-color:#D6E4F0;
-                     -fx-border-width:1;" />
+            <padding>
+                <Insets top="18" right="18" bottom="18" left="18"/>
+            </padding>
 
-        <!-- ================= HEADER ================= -->
+            <!-- HEADER -->
+            <HBox alignment="CENTER_LEFT" spacing="15">
 
-        <Pane layoutX="20"
-              layoutY="20"
-              prefWidth="860"
-              prefHeight="90"
-              style="-fx-background-color:linear-gradient(to right,#2563EB,#60A5FA);
-                     -fx-background-radius:15 15 0 0;">
+                <Label text="🧸" style="-fx-font-size:32;"/>
 
-            <children>
+                <VBox HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label text="KIDDIELAND"
+                               style="-fx-font-size:24;-fx-font-weight:bold;"/>
+                        <Label text="CAREGIVER DASHBOARD"
+                               style="-fx-font-size:12;-fx-text-fill:#6B7280;"/>
+                    </children>
+                </VBox>
 
-                <Label
-                        layoutX="190"
-                        layoutY="18"
-                        text="KIDS DAYCARE ACTIVITY CENTER"
-                        style="-fx-font-size:24px;
-                               -fx-font-weight:bold;
-                               -fx-text-fill:white;" />
+                <VBox alignment="CENTER_RIGHT">
+                    <children>
+                        <Label text="● STATUS ONLINE"
+                               style="-fx-text-fill:#16A34A;-fx-font-size:10;"/>
+                        <Label fx:id="lblCaregiver"
+                               text="Caregiver"
+                               style="-fx-font-weight:bold;"/>
+                        <HBox spacing="5">
+                            <children>
+                                <Label text="12 Jul"/>
+                                <Label text="|"/>
+                                <Label text="10:21"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
 
-                <Label
-                        layoutX="315"
-                        layoutY="55"
-                        text="DASHBOARD CAREGIVER"
-                        style="-fx-font-size:15px;
-                               -fx-font-weight:bold;
-                               -fx-text-fill:white;" />
+                <Button fx:id="btnLogout"
+                        text="Keluar"
+                        onAction="#logout"
+                        prefWidth="90"
+                        style="-fx-background-color:#EF4444;-fx-text-fill:white;-fx-background-radius:8;"/>
 
-            </children>
+            </HBox>
 
-        </Pane>
+            <Separator/>
 
-        <!-- ================= SIDEBAR ================= -->
+            <!-- STATISTIC -->
+            <GridPane hgap="8">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="25"/>
+                    <ColumnConstraints percentWidth="25"/>
+                    <ColumnConstraints percentWidth="25"/>
+                    <ColumnConstraints percentWidth="25"/>
+                </columnConstraints>
 
-        <Label
-                layoutX="45"
-                layoutY="130"
-                text="OPERASIONAL"
-                style="-fx-font-size:16px;
-                       -fx-font-weight:bold;" />
+                <children>
 
-        <Separator
-                layoutX="40"
-                layoutY="155"
-                prefWidth="220" />
+                    <VBox GridPane.columnIndex="0" spacing="6"
+                          style="-fx-border-color:#E5E7EB;-fx-background-radius:10;-fx-padding:10;">
+                        <children>
+                            <Label text="Total Anak Hari Ini"/>
+                            <Label fx:id="lblTotalAnak"
+                                   text="0"
+                                   style="-fx-font-size:24;-fx-font-weight:bold;-fx-text-fill:#2563EB;"/>
+                        </children>
+                    </VBox>
 
-        <!-- CHECK IN -->
+                    <VBox GridPane.columnIndex="1" spacing="6"
+                          style="-fx-border-color:#E5E7EB;-fx-padding:10;">
+                        <children>
+                            <Label text="Check In"/>
+                            <Label fx:id="lblCheckIn"
+                                   text="0"
+                                   style="-fx-font-size:24;-fx-font-weight:bold;-fx-text-fill:#16A34A;"/>
+                        </children>
+                    </VBox>
 
-        <Button
-                fx:id="btnCheckIn"
-                layoutX="45"
-                layoutY="175"
-                prefWidth="210"
-                prefHeight="40"
-                text="Check In Anak"
-                onAction="#checkIn"
-                style="-fx-background-color:#2563EB;
-                       -fx-background-radius:8;
-                       -fx-text-fill:white;
-                       -fx-font-size:14px;
-                       -fx-font-weight:bold;" />
+                    <VBox GridPane.columnIndex="2" spacing="6"
+                          style="-fx-border-color:#E5E7EB;-fx-padding:10;">
+                        <children>
+                            <Label text="Belum Check In"/>
+                            <Label fx:id="lblBelumCheckIn"
+                                   text="0"
+                                   style="-fx-font-size:24;-fx-font-weight:bold;-fx-text-fill:#F59E0B;"/>
+                        </children>
+                    </VBox>
 
-        <!-- DAILY ACTIVITY -->
+                    <VBox GridPane.columnIndex="3" spacing="6"
+                          style="-fx-border-color:#E5E7EB;-fx-padding:10;">
+                        <children>
+                            <Label text="Check Out"/>
+                            <Label fx:id="lblCheckOut"
+                                   text="0"
+                                   style="-fx-font-size:24;-fx-font-weight:bold;-fx-text-fill:#EF4444;"/>
+                        </children>
+                    </VBox>
 
-        <Button
-                fx:id="btnDailyActivity"
-                layoutX="45"
-                layoutY="230"
-                prefWidth="210"
-                prefHeight="40"
-                text="Daily Activity"
-                onAction="#dailyActivity"
-                style="-fx-background-color:#16A34A;
-                       -fx-background-radius:8;
-                       -fx-text-fill:white;
-                       -fx-font-size:14px;
-                       -fx-font-weight:bold;" />
+                </children>
+            </GridPane>
 
-        <!-- CHECK OUT -->
+            <HBox spacing="15" VBox.vgrow="ALWAYS">
 
-        <Button
-                fx:id="btnCheckOut"
-                layoutX="45"
-                layoutY="285"
-                prefWidth="210"
-                prefHeight="40"
-                text="Check Out Anak"
-                onAction="#checkOut"
-                style="-fx-background-color:#F59E0B;
-                       -fx-background-radius:8;
-                       -fx-text-fill:white;
-                       -fx-font-size:14px;
-                       -fx-font-weight:bold;" />
+                <VBox prefWidth="300" spacing="12"
+                      style="-fx-border-color:#E5E7EB;">
+                    <padding><Insets top="10" left="10" right="10"/></padding>
+                    <children>
+                        <Label text="• OPERASIONAL"
+                               style="-fx-font-size:16;-fx-font-weight:bold;"/>
+                        <Button fx:id="btnCheckIn" text="➡ Check In Anak" onAction="#checkIn"
+                                prefHeight="45"
+                                style="-fx-background-color:#DCEBFF;-fx-alignment:CENTER_LEFT;"/>
+                        <Button fx:id="btnDailyActivity" text="🕒 Daily Activity" onAction="#dailyActivity"
+                                prefHeight="45"
+                                style="-fx-background-color:#DCFCE7;-fx-alignment:CENTER_LEFT;"/>
+                        <Button fx:id="btnCheckOut" text="🚪 Check Out Anak" onAction="#checkOut"
+                                prefHeight="45"
+                                style="-fx-background-color:#FFE8CC;-fx-alignment:CENTER_LEFT;"/>
+                    </children>
+                </VBox>
 
-        <!-- ================= CARD STATISTIK ================= -->
+                <VBox spacing="10" HBox.hgrow="ALWAYS">
+                    <children>
 
-        <Pane layoutX="290"
-              layoutY="125"
-              prefWidth="520"
-              prefHeight="90"
-              style="-fx-background-color:#E8F0FE;
-                     -fx-background-radius:12;">
+                        <HBox spacing="10">
+                            <children>
+                                <Label text="Cari Anak"/>
+                                <TextField fx:id="txtCari" HBox.hgrow="ALWAYS"
+                                           promptText="Masukkan nama anak..."/>
+                                <Button fx:id="btnCari"
+                                        text="Cari"
+                                        onAction="#cari"/>
+                            </children>
+                        </HBox>
 
-            <children>
+                        <Label text="Data Anak Hari Ini"
+                               style="-fx-font-weight:bold;"/>
 
-                <!-- Total Anak -->
+                        <TableView fx:id="tblAnak" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="colID" text="ID Anak" prefWidth="120"/>
+                                <TableColumn fx:id="colNama" text="Nama Anak" prefWidth="300"/>
+                                <TableColumn fx:id="colCheckIn" text="Check In" prefWidth="120"/>
+                                <TableColumn fx:id="colStatus" text="Status" prefWidth="120"/>
+                                <TableColumn fx:id="colAksi" text="Aksi" prefWidth="120"/>
+                            </columns>
+                        </TableView>
 
-                <Label layoutX="20"
-                       layoutY="12"
-                       text="Total Anak Hari Ini"
-                       style="-fx-font-size:14px;
-                              -fx-font-weight:bold;" />
+                    </children>
+                </VBox>
 
-                <Label fx:id="lblTotalAnak"
-                       layoutX="40"
-                       layoutY="40"
-                       text="0"
-                       style="-fx-font-size:30px;
-                              -fx-font-weight:bold;
-                              -fx-text-fill:#2563EB;" />
+            </HBox>
 
-                <!-- Check In -->
+            <Separator/>
 
-                <Label layoutX="155"
-                       layoutY="12"
-                       text="Check In"
-                       style="-fx-font-size:14px;
-                              -fx-font-weight:bold;" />
+            <HBox>
+                <children>
+                    <Label fx:id="lblStatus"
+                           text="Caregiver - Status Online"
+                           HBox.hgrow="ALWAYS"/>
+                    <Label text="KIDDIELAND CAREGIVER v1.0"/>
+                </children>
+            </HBox>
 
-                <Label fx:id="lblCheckIn"
-                       layoutX="175"
-                       layoutY="40"
-                       text="0"
-                       style="-fx-font-size:30px;
-                              -fx-font-weight:bold;
-                              -fx-text-fill:#16A34A;" />
-
-                <!-- Belum Check In -->
-
-                <Label layoutX="270"
-                       layoutY="12"
-                       text="Belum Check In"
-                       style="-fx-font-size:14px;
-                              -fx-font-weight:bold;" />
-
-                <Label fx:id="lblBelumCheckIn"
-                       layoutX="320"
-                       layoutY="40"
-                       text="0"
-                       style="-fx-font-size:30px;
-                              -fx-font-weight:bold;
-                              -fx-text-fill:#F59E0B;" />
-
-                <!-- Check Out -->
-
-                <Label layoutX="420"
-                       layoutY="12"
-                       text="Check Out"
-                       style="-fx-font-size:14px;
-                              -fx-font-weight:bold;" />
-
-                <Label fx:id="lblCheckOut"
-                       layoutX="440"
-                       layoutY="40"
-                       text="0"
-                       style="-fx-font-size:30px;
-                              -fx-font-weight:bold;
-                              -fx-text-fill:#EF4444;" />
-
-            </children>
-
-        </Pane>
-
-        <!-- ================= PENCARIAN ================= -->
-
-        <Label layoutX="290"
-               layoutY="235"
-               text="Cari Anak"
-               style="-fx-font-size:15px;
-                      -fx-font-weight:bold;" />
-
-        <TextField fx:id="txtCari"
-                   layoutX="370"
-                   layoutY="230"
-                   prefWidth="260"
-                   prefHeight="35"
-                   promptText="Masukkan Nama Anak..." />
-
-        <Button fx:id="btnCari"
-                layoutX="645"
-                layoutY="230"
-                prefWidth="80"
-                prefHeight="35"
-                text="Cari"
-                onAction="#cari"
-                style="-fx-background-color:#2563EB;
-                       -fx-background-radius:8;
-                       -fx-text-fill:white;
-                       -fx-font-weight:bold;" />
-
-        <!-- ================= TABLE DATA ================= -->
-
-        <Label layoutX="290"
-               layoutY="285"
-               text="Data Anak Hari Ini"
-               style="-fx-font-size:16px;
-                      -fx-font-weight:bold;" />
-
-        <TableView fx:id="tblAnak"
-                   layoutX="290"
-                   layoutY="315"
-                   prefWidth="540"
-                   prefHeight="170">
-
-            <columns>
-
-                <TableColumn fx:id="colID"
-                             prefWidth="80"
-                             text="ID Anak"/>
-
-                <TableColumn fx:id="colNama"
-                             prefWidth="180"
-                             text="Nama Anak"/>
-
-                <TableColumn fx:id="colCheckIn"
-                             prefWidth="100"
-                             text="Check In"/>
-
-                <TableColumn fx:id="colStatus"
-                             prefWidth="90"
-                             text="Status"/>
-
-                <TableColumn fx:id="colAksi"
-                             prefWidth="90"
-                             text="Aksi"/>
-
-            </columns>
-
-        </TableView>
-
-        <!-- ================= FOOTER ================= -->
-
-        <Separator layoutX="20"
-                   layoutY="520"
-                   prefWidth="860"/>
-
-        <Label fx:id="lblCaregiver"
-               layoutX="35"
-               layoutY="535"
-               text="Caregiver : -"
-               style="-fx-font-size:13px;
-                      -fx-font-weight:bold;
-                      -fx-text-fill:#374151;"/>
-
-        <Label fx:id="lblStatus"
-               layoutX="35"
-               layoutY="555"
-               text="Status : Online"
-               style="-fx-font-size:12px;
-                      -fx-text-fill:#16A34A;"/>
-
-        <Button fx:id="btnLogout"
-                layoutX="730"
-                layoutY="530"
-                prefWidth="100"
-                prefHeight="35"
-                text="Logout"
-                onAction="#logout"
-                style="-fx-background-color:#EF4444;
-                       -fx-background-radius:8;
-                       -fx-text-fill:white;
-                       -fx-font-size:14px;
-                       -fx-font-weight:bold;"/>
+        </VBox>
 
     </children>
 
 </AnchorPane>
-

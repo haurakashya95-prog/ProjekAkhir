@@ -7,509 +7,132 @@
 <AnchorPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.kidsdaycareactivitycenter.DashboardAdmin.DashboardAdminController"
-            prefWidth="1100"
-            prefHeight="700"
+            prefWidth="1250"
+            prefHeight="720"
             style="-fx-background-color:#F5F7FB;">
 
     <children>
 
-        <!-- ================= BACKGROUND ================= -->
-
-        <Pane layoutX="15"
-              layoutY="15"
-              prefWidth="1070"
-              prefHeight="670"
-              style="-fx-background-color:white;
-                     -fx-background-radius:15;
-                     -fx-border-color:#D6E4F0;
-                     -fx-border-radius:15;
-                     -fx-border-width:1;" />
-
-        <!-- ================= HEADER ================= -->
-
-        <HBox layoutX="20"
-              layoutY="20"
-              prefWidth="1060"
-              prefHeight="90"
-              alignment="CENTER_LEFT"
-              spacing="20"
-              style="-fx-background-color:linear-gradient(to right,#2563EB,#3B82F6);
-                     -fx-background-radius:15;">
-
+        <VBox layoutX="15" layoutY="15" prefWidth="1220" prefHeight="690" spacing="18"
+              style="-fx-background-color:white;-fx-background-radius:18;-fx-border-color:#E5E7EB;-fx-border-radius:18;">
             <padding>
-                <Insets top="15" right="20" bottom="15" left="20"/>
+                <Insets top="18" right="18" bottom="18" left="18"/>
             </padding>
 
             <children>
 
-                <!-- Logo -->
+                <HBox alignment="CENTER_LEFT" spacing="15">
 
-                <Label text="🧸"
-                       style="-fx-font-size:40;" />
+                    <Label text="🧸" style="-fx-font-size:34;"/>
 
-                <!-- Judul -->
+                    <VBox HBox.hgrow="ALWAYS">
+                        <children>
+                            <Label text="KIDDIELAND"
+                                   style="-fx-font-size:24;-fx-font-weight:bold;"/>
+                            <Label text="DAYCARE MANAGEMENT SYSTEM"
+                                   style="-fx-font-size:11;-fx-text-fill:#6B7280;"/>
+                        </children>
+                    </VBox>
 
-                <VBox spacing="3">
+                    <HBox spacing="20" alignment="CENTER">
+                        <VBox alignment="CENTER">
+                            <Label fx:id="lblTotalAnak" text="0" style="-fx-font-size:20;-fx-font-weight:bold;"/>
+                            <Label text="ANAK"/>
+                        </VBox>
 
-                    <children>
+                        <VBox alignment="CENTER">
+                            <Label fx:id="lblTotalOrangTua" text="0" style="-fx-font-size:20;-fx-font-weight:bold;"/>
+                            <Label text="ORTU"/>
+                        </VBox>
 
-                        <Label text="KIDS DAYCARE ACTIVITY CENTER"
-                               style="-fx-font-size:24;
-                                      -fx-font-weight:bold;
-                                      -fx-text-fill:white;" />
+                        <VBox alignment="CENTER">
+                            <Label fx:id="lblTotalKaryawan" text="0" style="-fx-font-size:20;-fx-font-weight:bold;"/>
+                            <Label text="STAFF"/>
+                        </VBox>
 
-                        <Label text="Dashboard Administrator"
-                               style="-fx-font-size:14;
-                                      -fx-text-fill:white;" />
+                        <VBox alignment="CENTER">
+                            <Label fx:id="lblAnakHariIni" text="0" style="-fx-font-size:20;-fx-font-weight:bold;"/>
+                            <Label text="HADIR"/>
+                        </VBox>
 
-                    </children>
+                        <Separator orientation="VERTICAL"/>
 
-                </VBox>
+                        <VBox>
+                            <Label text="ADMIN" style="-fx-text-fill:#F97316;"/>
+                            <Label fx:id="lblLogin" text="Administrator" style="-fx-font-weight:bold;"/>
+                            <Label fx:id="lblRole" text="Admin"/>
+                            <HBox spacing="5">
+                                <Label fx:id="lblTanggal" text="-"/>
+                                <Label text="|"/>
+                                <Label fx:id="lblJam" text="-"/>
+                            </HBox>
+                        </VBox>
 
-                <!-- Spacer -->
+                        <Button fx:id="btnLogout"
+                                text="Keluar"
+                                onAction="#logout"
+                                prefWidth="90"
+                                style="-fx-background-color:#EF4444;-fx-text-fill:white;-fx-background-radius:8;"/>
+                    </HBox>
 
-                <Pane HBox.hgrow="ALWAYS"/>
+                </HBox>
 
-                <!-- Informasi Login -->
+                <Separator/>
 
-                <VBox alignment="CENTER_RIGHT"
-                      spacing="4">
+                <HBox spacing="15" VBox.vgrow="ALWAYS">
 
-                    <children>
+                    <VBox prefWidth="290" spacing="10"
+                          style="-fx-background-color:white;-fx-border-color:#E5E7EB;-fx-background-radius:12;-fx-border-radius:12;">
+                        <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                        <children>
+                            <Label text="01 KELOLA MASTER"
+                                   style="-fx-font-size:15;-fx-font-weight:bold;-fx-text-fill:#2563EB;"/>
+                            <Button text="👨‍💼 Master Karyawan" onAction="#masterKaryawan" prefHeight="42"
+                                    style="-fx-background-color:#EEF4FF;-fx-background-radius:10;-fx-alignment:CENTER_LEFT;"/>
+                            <Button text="👨‍👩‍👧 Master Orang Tua" onAction="#masterOrangTua" prefHeight="42"
+                                    style="-fx-background-color:#EEF4FF;-fx-background-radius:10;-fx-alignment:CENTER_LEFT;"/>
+                            <Button text="👶 Master Anak" onAction="#masterAnak" prefHeight="42"
+                                    style="-fx-background-color:#EEF4FF;-fx-background-radius:10;-fx-alignment:CENTER_LEFT;"/>
+                            <Button text="📦 Paket Daycare" onAction="#paketDaycare" prefHeight="42"
+                                    style="-fx-background-color:#EEF4FF;-fx-background-radius:10;-fx-alignment:CENTER_LEFT;"/>
+                            <Button text="📅 Activity Schedule" onAction="#activitySchedule" prefHeight="42"
+                                    style="-fx-background-color:#EEF4FF;-fx-background-radius:10;-fx-alignment:CENTER_LEFT;"/>
+                        </children>
+                    </VBox>
 
-                        <Label text="Login"
-                               style="-fx-text-fill:white;
-                                      -fx-font-size:12;" />
+                    <VBox prefWidth="290" spacing="10"
+                          style="-fx-background-color:white;-fx-border-color:#E5E7EB;">
+                        <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                        <children>
+                            <Label text="02 TRANSAKSI DAYCARE"
+                                   style="-fx-font-size:15;-fx-font-weight:bold;-fx-text-fill:#16A34A;"/>
+                            <Button text="🏫 Transaksi Daycare" onAction="#transaksiDaycare" prefHeight="42"
+                                    style="-fx-background-color:#ECFDF5;-fx-background-radius:10;-fx-alignment:CENTER_LEFT;"/>
+                        </children>
+                    </VBox>
 
-                        <Label fx:id="lblLogin"
-                               text="Administrator"
-                               style="-fx-text-fill:white;
-                                      -fx-font-size:16;
-                                      -fx-font-weight:bold;" />
+                    <VBox prefWidth="290" spacing="10"
+                          style="-fx-background-color:white;-fx-border-color:#E5E7EB;">
+                        <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                        <children>
+                            <Label text="03 KELOLA PAYMENT"
+                                   style="-fx-font-size:15;-fx-font-weight:bold;-fx-text-fill:#F59E0B;"/>
+                            <Button text="💳 Transaksi Payment" onAction="#transaksiPayment" prefHeight="42"
+                                    style="-fx-background-color:#FFF7E8;-fx-background-radius:10;-fx-alignment:CENTER_LEFT;"/>
+                        </children>
+                    </VBox>
 
-                        <Label fx:id="lblRole"
-                               text="Admin"
-                               style="-fx-text-fill:white;
-                                      -fx-font-size:13;" />
+                </HBox>
 
-                    </children>
+                <Separator/>
 
-                </VBox>
-
-                <!-- Garis -->
-
-                <Separator orientation="VERTICAL"
-                           prefHeight="55"/>
-
-                <!-- Tanggal & Jam -->
-
-                <VBox alignment="CENTER_RIGHT"
-                      spacing="4">
-
-                    <children>
-
-                        <Label text="Tanggal"
-                               style="-fx-text-fill:white;
-                                      -fx-font-size:12;" />
-
-                        <Label fx:id="lblTanggal"
-                               text="-"
-                               style="-fx-text-fill:white;
-                                      -fx-font-size:14;
-                                      -fx-font-weight:bold;" />
-
-                        <Label fx:id="lblJam"
-                               text="00:00:00"
-                               style="-fx-text-fill:white;
-                                      -fx-font-size:14;
-                                      -fx-font-weight:bold;" />
-
-                    </children>
-
-                </VBox>
-
-                <!-- Logout -->
-
-                <Button fx:id="btnLogout"
-                        text="Logout"
-                        onAction="#logout"
-                        prefWidth="95"
-                        prefHeight="38"
-                        style="-fx-background-color:#EF4444;
-                               -fx-background-radius:8;
-                               -fx-text-fill:white;
-                               -fx-font-size:14;
-                               -fx-font-weight:bold;" />
+                <Label fx:id="lblFooterLogin"
+                       text="Administrator (Admin)"
+                       style="-fx-text-fill:#6B7280;"/>
 
             </children>
 
-        </HBox>
-
-        <!-- ================= CARD STATISTIK ================= -->
-
-        <GridPane layoutX="35"
-                  layoutY="125"
-                  hgap="20"
-                  vgap="20"
-                  prefWidth="1030">
-
-            <children>
-
-                <!-- ================= CARD TOTAL ANAK ================= -->
-
-                <VBox GridPane.columnIndex="0"
-                      alignment="CENTER"
-                      spacing="8"
-                      prefWidth="235"
-                      prefHeight="120"
-                      style="-fx-background-color:white;
-                             -fx-background-radius:12;
-                             -fx-border-color:#E5E7EB;
-                             -fx-border-radius:12;">
-
-                    <children>
-
-                        <Label text="👶"
-                               style="-fx-font-size:30;" />
-
-                        <Label text="Total Anak"
-                               style="-fx-font-size:15;
-                                      -fx-font-weight:bold;" />
-
-                        <Label fx:id="lblTotalAnak"
-                               text="0"
-                               style="-fx-font-size:32;
-                                      -fx-font-weight:bold;
-                                      -fx-text-fill:#2563EB;" />
-
-                    </children>
-
-                </VBox>
-
-                <!-- ================= CARD TOTAL ORANG TUA ================= -->
-
-                <VBox GridPane.columnIndex="1"
-                      alignment="CENTER"
-                      spacing="8"
-                      prefWidth="235"
-                      prefHeight="120"
-                      style="-fx-background-color:white;
-                             -fx-background-radius:12;
-                             -fx-border-color:#E5E7EB;
-                             -fx-border-radius:12;">
-
-                    <children>
-
-                        <Label text="👨‍👩‍👧"
-                               style="-fx-font-size:30;" />
-
-                        <Label text="Total Orang Tua"
-                               style="-fx-font-size:15;
-                                      -fx-font-weight:bold;" />
-
-                        <Label fx:id="lblTotalOrangTua"
-                               text="0"
-                               style="-fx-font-size:32;
-                                      -fx-font-weight:bold;
-                                      -fx-text-fill:#16A34A;" />
-
-                    </children>
-
-                </VBox>
-
-                <!-- ================= CARD TOTAL KARYAWAN ================= -->
-
-                <VBox GridPane.columnIndex="2"
-                      alignment="CENTER"
-                      spacing="8"
-                      prefWidth="235"
-                      prefHeight="120"
-                      style="-fx-background-color:white;
-                             -fx-background-radius:12;
-                             -fx-border-color:#E5E7EB;
-                             -fx-border-radius:12;">
-
-                    <children>
-
-                        <Label text="👨‍💼"
-                               style="-fx-font-size:30;" />
-
-                        <Label text="Total Karyawan"
-                               style="-fx-font-size:15;
-                                      -fx-font-weight:bold;" />
-
-                        <Label fx:id="lblTotalKaryawan"
-                               text="0"
-                               style="-fx-font-size:32;
-                                      -fx-font-weight:bold;
-                                      -fx-text-fill:#F59E0B;" />
-
-                    </children>
-
-                </VBox>
-
-                <!-- ================= CARD ANAK HARI INI ================= -->
-
-                <VBox GridPane.columnIndex="3"
-                      alignment="CENTER"
-                      spacing="8"
-                      prefWidth="235"
-                      prefHeight="120"
-                      style="-fx-background-color:white;
-                             -fx-background-radius:12;
-                             -fx-border-color:#E5E7EB;
-                             -fx-border-radius:12;">
-
-                    <children>
-
-                        <Label text="📅"
-                               style="-fx-font-size:30;" />
-
-                        <Label text="Anak Hari Ini"
-                               style="-fx-font-size:15;
-                                      -fx-font-weight:bold;" />
-
-                        <Label fx:id="lblAnakHariIni"
-                               text="0"
-                               style="-fx-font-size:32;
-                                      -fx-font-weight:bold;
-                                      -fx-text-fill:#EF4444;" />
-
-                    </children>
-
-                </VBox>
-
-            </children>
-
-        </GridPane>
-
-        <!-- ================= MENU MASTER ================= -->
-
-        <Pane layoutX="35"
-              layoutY="285"
-              prefWidth="320"
-              prefHeight="355"
-              style="-fx-background-color:white;
-                     -fx-background-radius:12;
-                     -fx-border-color:#E5E7EB;
-                     -fx-border-radius:12;">
-
-            <children>
-
-                <Label layoutX="20"
-                       layoutY="20"
-                       text="MASTER DATA"
-                       style="-fx-font-size:20;
-                              -fx-font-weight:bold;
-                              -fx-text-fill:#2563EB;"/>
-
-                <Separator layoutX="20"
-                           layoutY="55"
-                           prefWidth="280"/>
-
-                <!-- MASTER KARYAWAN -->
-
-                <Button layoutX="25"
-                        layoutY="75"
-                        prefWidth="270"
-                        prefHeight="40"
-                        text="👨‍💼  Master Karyawan"
-                        onAction="#masterKaryawan"
-                        style="-fx-background-color:#2563EB;
-                               -fx-text-fill:white;
-                               -fx-font-size:14;
-                               -fx-font-weight:bold;
-                               -fx-background-radius:8;"/>
-
-                <!-- MASTER ORANG TUA -->
-
-                <Button layoutX="25"
-                        layoutY="130"
-                        prefWidth="270"
-                        prefHeight="40"
-                        text="👨‍👩‍👧  Master Orang Tua"
-                        onAction="#masterOrangTua"
-                        style="-fx-background-color:#16A34A;
-                               -fx-text-fill:white;
-                               -fx-font-size:14;
-                               -fx-font-weight:bold;
-                               -fx-background-radius:8;"/>
-
-                <!-- MASTER ANAK -->
-
-                <Button layoutX="25"
-                        layoutY="185"
-                        prefWidth="270"
-                        prefHeight="40"
-                        text="👶  Master Anak"
-                        onAction="#masterAnak"
-                        style="-fx-background-color:#F59E0B;
-                               -fx-text-fill:white;
-                               -fx-font-size:14;
-                               -fx-font-weight:bold;
-                               -fx-background-radius:8;"/>
-
-                <!-- MASTER PAKET DAYCARE -->
-
-                <Button layoutX="25"
-                        layoutY="240"
-                        prefWidth="270"
-                        prefHeight="40"
-                        text="📦  Master Paket Daycare"
-                        onAction="#paketDaycare"
-                        style="-fx-background-color:#8B5CF6;
-                               -fx-text-fill:white;
-                               -fx-font-size:14;
-                               -fx-font-weight:bold;
-                               -fx-background-radius:8;"/>
-
-                <!-- ACTIVITY SCHEDULE -->
-
-                <Button layoutX="25"
-                        layoutY="295"
-                        prefWidth="270"
-                        prefHeight="40"
-                        text="📅  Activity Schedule"
-                        onAction="#activitySchedule"
-                        style="-fx-background-color:#0EA5E9;
-                               -fx-text-fill:white;
-                               -fx-font-size:14;
-                               -fx-font-weight:bold;
-                               -fx-background-radius:8;"/>
-
-            </children>
-
-        </Pane>
-
-        <!-- ================= MENU TRANSAKSI ================= -->
-
-        <Pane layoutX="390"
-              layoutY="285"
-              prefWidth="320"
-              prefHeight="355"
-              style="-fx-background-color:white;
-                     -fx-background-radius:12;
-                     -fx-border-color:#E5E7EB;
-                     -fx-border-radius:12;">
-
-            <children>
-
-                <Label layoutX="20"
-                       layoutY="20"
-                       text="TRANSAKSI"
-                       style="-fx-font-size:20;
-                              -fx-font-weight:bold;
-                              -fx-text-fill:#2563EB;"/>
-
-                <Separator layoutX="20"
-                           layoutY="55"
-                           prefWidth="280"/>
-
-                <Button layoutX="25"
-                        layoutY="75"
-                        prefWidth="270"
-                        prefHeight="40"
-                        text="🏫  Transaksi Daycare"
-                        onAction="#transaksiDaycare"
-                        style="-fx-background-color:#2563EB;
-                               -fx-text-fill:white;
-                               -fx-font-size:14;
-                               -fx-font-weight:bold;
-                               -fx-background-radius:8;"/>
-
-                <Button layoutX="25"
-                        layoutY="130"
-                        prefWidth="270"
-                        prefHeight="40"
-                        text="💳  Transaksi Payment"
-                        onAction="#transaksiPayment"
-                        style="-fx-background-color:#16A34A;
-                               -fx-text-fill:white;
-                               -fx-font-size:14;
-                               -fx-font-weight:bold;
-                               -fx-background-radius:8;"/>
-
-            </children>
-
-        </Pane>
-
-        <!-- ================= MENU LAPORAN ================= -->
-
-        <Pane layoutX="745"
-              layoutY="285"
-              prefWidth="320"
-              prefHeight="355"
-              style="-fx-background-color:white;
-                     -fx-background-radius:12;
-                     -fx-border-color:#E5E7EB;
-                     -fx-border-radius:12;">
-
-            <children>
-
-                <Label layoutX="20"
-                       layoutY="20"
-                       text="LAPORAN"
-                       style="-fx-font-size:20;
-                              -fx-font-weight:bold;
-                              -fx-text-fill:#2563EB;"/>
-
-                <Separator layoutX="20"
-                           layoutY="55"
-                           prefWidth="280"/>
-
-                <Button layoutX="25"
-                        layoutY="75"
-                        prefWidth="270"
-                        prefHeight="40"
-                        text="📄  Laporan Daycare"
-                        onAction="#laporanDaycare"
-                        style="-fx-background-color:#2563EB;
-                               -fx-text-fill:white;
-                               -fx-font-size:14;
-                               -fx-font-weight:bold;
-                               -fx-background-radius:8;"/>
-
-                <Button layoutX="25"
-                        layoutY="130"
-                        prefWidth="270"
-                        prefHeight="40"
-                        text="💰  Laporan Payment"
-                        onAction="#laporanPayment"
-                        style="-fx-background-color:#F59E0B;
-                               -fx-text-fill:white;
-                               -fx-font-size:14;
-                               -fx-font-weight:bold;
-                               -fx-background-radius:8;"/>
-
-                <Button layoutX="25"
-                        layoutY="185"
-                        prefWidth="270"
-                        prefHeight="40"
-                        text="📊  Laporan Activity"
-                        onAction="#laporanActivity"
-                        style="-fx-background-color:#8B5CF6;
-                               -fx-text-fill:white;
-                               -fx-font-size:14;
-                               -fx-font-weight:bold;
-                               -fx-background-radius:8;"/>
-
-            </children>
-
-        </Pane>
-
-        <!-- ================= FOOTER ================= -->
-
-        <Separator layoutX="25"
-                   layoutY="655"
-                   prefWidth="1045"/>
-
-        <Label fx:id="lblFooterLogin"
-               layoutX="35"
-               layoutY="665"
-               text="Administrator (Admin)"
-               style="-fx-font-size:13;
-                      -fx-font-weight:bold;
-                      -fx-text-fill:#6B7280;"/>
+        </VBox>
 
     </children>
 

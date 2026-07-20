@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.kidsdaycareactivitycenter.TransaksiPayment.TransaksiPaymentController">
+
+    <children>
+        <VBox spacing="10" layoutX="20" layoutY="20">
+            <Label text="Transaksi Payment" style="-fx-font-size:20;-fx-font-weight:bold;"/>
+
+            <GridPane hgap="10" vgap="10">
+                <Label text="ID Payment"/>
+                <TextField fx:id="txtIDPayment" GridPane.columnIndex="1"/>
+
+                <Label text="Nama Orang Tua" GridPane.rowIndex="1"/>
+                <ComboBox fx:id="cmbOrangTua" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                <Label text="Nama Karyawan" GridPane.rowIndex="2"/>
+                <ComboBox fx:id="cmbKaryawan" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                <Label text="Tanggal" GridPane.rowIndex="3"/>
+                <DatePicker fx:id="dpTanggal" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+                <Label text="Total Tagihan" GridPane.rowIndex="4"/>
+                <TextField fx:id="txtTotalTagihan" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+                <Label text="Jumlah Dibayar" GridPane.rowIndex="5"/>
+                <TextField fx:id="txtJumlahDibayar" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+
+                <Label text="Metode Payment" GridPane.rowIndex="6"/>
+                <ComboBox fx:id="cmbMetode" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+            </GridPane>
+
+            <HBox spacing="10">
+                <Button text="Simpan" onAction="#simpan"/>
+                <Button text="Ubah" onAction="#ubah"/>
+                <Button text="Hapus" onAction="#hapus"/>
+                <Button text="Cari" onAction="#cari"/>
+                <Button text="Batal" onAction="#batal"/>
+                <Button text="Kembali" fx:id="btnKembali" onAction="#kembali"/>
+            </HBox>
+        </VBox>
+
+        <TableView fx:id="tblPayment" layoutX="400" layoutY="20" prefWidth="800" prefHeight="600">
+            <columns>
+                <TableColumn fx:id="colIDPayment" text="ID"/>
+                <TableColumn fx:id="colOrangTua" text="Orang Tua"/>
+                <TableColumn fx:id="colKaryawan" text="Karyawan"/>
+                <TableColumn fx:id="colTanggal" text="Tanggal"/>
+                <TableColumn fx:id="colTotalTagihan" text="Total"/>
+                <TableColumn fx:id="colJumlahDibayar" text="Dibayar"/>
+                <TableColumn fx:id="colMetode" text="Metode"/>
+                <TableColumn fx:id="colStatus" text="Status"/>
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

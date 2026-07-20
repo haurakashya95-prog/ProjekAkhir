@@ -7,6 +7,11 @@ import java.time.LocalDate;
 import javafx.scene.control.ButtonType;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 
 import javafx.fxml.FXML;
 
@@ -821,29 +826,27 @@ public class TransaksiDaycareController {
 
     }
 
-//==================== KEMBALI ====================
-
+    //==================== KEMBALI ====================
     @FXML
     private void kembali() {
-
         try {
+            Stage stage = (Stage) btnKembali.getScene().getWindow();
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            Parent root = FXMLLoader.load(
+                    getClass().getResource("/com/example/kidsdaycareactivitycenter/DashboardAdmin/DashboardAdmin.fxml")
+            );
 
-            alert.setTitle("Informasi");
-
-            alert.setHeaderText(null);
-
-            alert.setContentText("Menu Kembali belum dibuat.");
-
-            alert.showAndWait();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Kids Daycare Activity Center - Dashboard Admin");
+            stage.centerOnScreen();
+            stage.show();
 
         } catch (Exception e) {
-
             e.printStackTrace();
-
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Gagal membuka Dashboard Admin");
+            alert.showAndWait();
         }
-
     }
-
 }

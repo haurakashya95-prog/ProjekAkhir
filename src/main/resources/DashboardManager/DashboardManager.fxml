@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.kidsdaycareactivitycenter.DashboardManager.DashboardManagerController"
+            prefWidth="1250" prefHeight="720"
+            style="-fx-background-color:#F5F7FB;">
+
+    <children>
+        <VBox layoutX="15" layoutY="15" prefWidth="1220" prefHeight="690" spacing="15"
+              style="-fx-background-color:white;-fx-background-radius:18;-fx-border-color:#E5E7EB;-fx-border-radius:18;">
+            <padding><Insets top="18" right="18" bottom="18" left="18"/></padding>
+
+            <!-- Header -->
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <Label text="🧸" style="-fx-font-size:30;"/>
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label text="KIDDIELAND" style="-fx-font-size:24;-fx-font-weight:bold;"/>
+                    <Label text="MANAGER DASHBOARD" style="-fx-text-fill:#6B7280;"/>
+                </VBox>
+                <VBox alignment="CENTER_RIGHT">
+                    <Label text="MANAGER" style="-fx-text-fill:#F97316;"/>
+                    <Label fx:id="lblManager" text="Andini Putri" style="-fx-font-weight:bold;"/>
+                    <Label fx:id="lblTanggal" text="12 Jul 2026 | 10:21"/>
+                </VBox>
+                <Button fx:id="btnLogout" text="Keluar" onAction="#logout"
+                        style="-fx-background-color:#EF4444;-fx-text-fill:white;-fx-background-radius:8;"/>
+            </HBox>
+
+            <!-- Cards -->
+            <HBox spacing="15">
+                <Button fx:id="cardHarian" text="Pendapatan Harian&#10;Rp 0"
+                        onAction="#showHarian"
+                        prefWidth="390" prefHeight="90"
+                        style="-fx-background-color:white;-fx-border-color:#3B82F6;-fx-border-width:0 0 0 5;-fx-font-size:16;-fx-alignment:CENTER_LEFT;"/>
+                <Button fx:id="cardBulanan" text="Pendapatan Bulanan&#10;Rp 0"
+                        onAction="#showBulanan"
+                        prefWidth="390" prefHeight="90"
+                        style="-fx-background-color:white;-fx-border-color:#EC4899;-fx-border-width:0 0 0 5;-fx-font-size:16;-fx-alignment:CENTER_LEFT;"/>
+                <Button fx:id="cardTahunan" text="Pendapatan Tahunan&#10;Rp 0"
+                        onAction="#showTahunan"
+                        prefWidth="390" prefHeight="90"
+                        style="-fx-background-color:white;-fx-border-color:#6366F1;-fx-border-width:0 0 0 5;-fx-font-size:16;-fx-alignment:CENTER_LEFT;"/>
+            </HBox>
+
+            <StackPane VBox.vgrow="ALWAYS">
+
+                <!-- Harian -->
+                <VBox fx:id="paneHarian" spacing="12">
+                    <HBox spacing="10">
+                        <Label text="Tanggal"/>
+                        <DatePicker fx:id="dpTanggal"/>
+                        <Button text="Tampilkan" onAction="#loadHarian"/>
+                    </HBox>
+                    <HBox spacing="15">
+                        <VBox prefWidth="420" style="-fx-border-color:#E5E7EB;-fx-padding:15;">
+                            <Label text="Pendapatan Hari Ini"/>
+                            <Label fx:id="lblPendapatanHarian" text="Rp 0" style="-fx-font-size:28;-fx-font-weight:bold;"/>
+                            <Separator/>
+                            <Label text="Jumlah Anak Berkunjung"/>
+                            <Label fx:id="lblAnakHarian" text="0 Anak" style="-fx-font-size:22;"/>
+                        </VBox>
+                        <VBox HBox.hgrow="ALWAYS" style="-fx-border-color:#E5E7EB;-fx-padding:15;">
+                            <Label text="Jumlah Anak per Kategori"/>
+                            <TableView fx:id="tblKategoriHarian" VBox.vgrow="ALWAYS"/>
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <!-- Bulanan -->
+                <VBox fx:id="paneBulanan" visible="false" managed="false" spacing="12">
+                    <HBox spacing="10">
+                        <Label text="Bulan"/>
+                        <ComboBox fx:id="cmbBulan" prefWidth="150"/>
+                        <Label text="Tahun"/>
+                        <TextField fx:id="txtTahunBulanan" promptText="Contoh: 2026" prefWidth="120"/>
+                        <Button text="Tampilkan" onAction="#loadBulanan"/>
+                    </HBox>
+                    <HBox spacing="15">
+                        <VBox prefWidth="420" style="-fx-border-color:#E5E7EB;-fx-padding:15;">
+                            <Label text="Pendapatan Bulanan"/>
+                            <Label fx:id="lblPendapatanBulanan" text="Rp 0" style="-fx-font-size:28;-fx-font-weight:bold;"/>
+                            <Separator/>
+                            <Label text="Jumlah Anak Berkunjung"/>
+                            <Label fx:id="lblAnakBulanan" text="0 Anak" style="-fx-font-size:22;"/>
+                        </VBox>
+                        <VBox HBox.hgrow="ALWAYS" style="-fx-border-color:#E5E7EB;-fx-padding:15;">
+                            <Label text="Jumlah Anak per Kategori"/>
+                            <TableView fx:id="tblKategoriBulanan" VBox.vgrow="ALWAYS"/>
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <!-- Tahunan -->
+                <VBox fx:id="paneTahunan" visible="false" managed="false" spacing="12">
+                    <HBox spacing="10">
+                        <Label text="Tahun"/>
+                        <TextField fx:id="txtTahunTahunan" promptText="Contoh: 2026" prefWidth="120"/>
+                        <Button text="Tampilkan" onAction="#loadTahunan"/>
+                    </HBox>
+                    <HBox spacing="15">
+                        <VBox prefWidth="420" style="-fx-border-color:#E5E7EB;-fx-padding:15;">
+                            <Label text="Pendapatan Tahunan"/>
+                            <Label fx:id="lblPendapatanTahunan" text="Rp 0" style="-fx-font-size:28;-fx-font-weight:bold;"/>
+                            <Separator/>
+                            <Label text="Jumlah Anak Berkunjung"/>
+                            <Label fx:id="lblAnakTahunan" text="0 Anak" style="-fx-font-size:22;"/>
+                        </VBox>
+                        <VBox HBox.hgrow="ALWAYS" style="-fx-border-color:#E5E7EB;-fx-padding:15;">
+                            <Label text="Jumlah Anak per Kategori"/>
+                            <TableView fx:id="tblKategoriTahunan" VBox.vgrow="ALWAYS"/>
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+            </StackPane>
+
+            <Separator/>
+            <Label text="KIDDIELAND MANAGER v1.0"/>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -627,13 +627,15 @@ public class MasterPaketDaycareController {
     @FXML
     private void kembali() {
 
+        var url = getClass().getResource("/DashboardAdmin/DashboardAdmin.fxml");
+
+        System.out.println("HASIL URL = " + url);
+
         try {
 
-            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(
-                    getClass().getResource("/com/example/kidsdaycareactivitycenter/Dashboard/DashboardAdmin.fxml")
-            );
+            FXMLLoader loader = new FXMLLoader(url);
 
-            javafx.scene.Parent root = loader.load();
+            Parent root = loader.load();
 
             Stage stage = (Stage) btnKembali.getScene().getWindow();
 
@@ -657,7 +659,6 @@ public class MasterPaketDaycareController {
         }
 
     }
-
 // ================= UPDATE STATISTIK =================
 
     private void updateStatistic() {
