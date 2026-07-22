@@ -1,206 +1,442 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0"
-            prefWidth="1200.0"
-            xmlns="http://javafx.com/javafx/21"
+<BorderPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.kidsdaycareactivitycenter.TransaksiDaycare.TransaksiDaycareController"
-            style="-fx-background-color:#F5F7FA;">
+            prefWidth="1400"
+            prefHeight="800"
+            style="-fx-background-color:#F4F6FB;">
 
-    <children>
+    <!-- ================================================= -->
+    <!-- HEADER -->
+    <!-- ================================================= -->
 
-        <!-- ================= JUDUL ================= -->
+    <top>
 
-        <Label layoutX="20"
-               layoutY="15"
-               text="TRANSAKSI DAYCARE"
-               style="-fx-font-size:24px;
-                      -fx-font-weight:bold;
-                      -fx-text-fill:#2C3E50;"/>
+        <VBox spacing="8">
 
-        <!-- ================= FORM ================= -->
+            <padding>
+                <Insets top="25"
+                        right="25"
+                        bottom="18"
+                        left="25"/>
+            </padding>
 
-        <VBox layoutX="20"
-              layoutY="55"
-              prefWidth="340"
-              spacing="8"
-              style="-fx-background-color:white;
-                     -fx-padding:15;
-                     -fx-background-radius:10;
-                     -fx-border-radius:10;
-                     -fx-border-color:#D6DBDF;">
+            <children>
 
-            <Label text="ID Daycare"/>
+                <HBox spacing="12"
+                      alignment="CENTER_LEFT">
 
-            <TextField fx:id="txtIDDaycare"
-                       editable="false"/>
+                    <children>
 
-            <Label text="Anak"/>
+                        <Label text="🎁"
+                               style="-fx-font-size:28;"/>
 
-            <ComboBox fx:id="cmbAnak"
-                      prefWidth="300"
-                      promptText="Pilih Anak"/>
+                        <VBox spacing="2">
 
-            <Label text="Paket Daycare"/>
+                            <children>
 
-            <ComboBox fx:id="cmbPaket"
-                      prefWidth="300"
-                      promptText="Pilih Paket"/>
+                                <Label text="TRANSAKSI DAYCARE"
+                                       style="
+                                       -fx-font-size:26;
+                                       -fx-font-weight:bold;
+                                       -fx-text-fill:#1E3A8A;"/>
 
-            <Label text="Karyawan"/>
+                                <Label text="Kids Daycare Activity Center"
+                                       style="
+                                       -fx-font-size:16;
+                                       -fx-text-fill:#64748B;"/>
 
-            <ComboBox fx:id="cmbKaryawan"
-                      prefWidth="300"
-                      promptText="Pilih Karyawan"/>
+                            </children>
 
-            <Label text="Tanggal Mulai"/>
+                        </VBox>
 
-            <DatePicker fx:id="dpTanggalMulai"
-                        prefWidth="300"/>
+                    </children>
 
-            <Label text="Tanggal Selesai"/>
+                </HBox>
 
-            <DatePicker fx:id="dpTanggalSelesai"
-                        prefWidth="300"/>
+                <Separator/>
 
-            <Label text="Status Daycare"/>
-
-            <ComboBox fx:id="cmbStatus"
-                      prefWidth="300"
-                      promptText="Pilih Status"/>
+            </children>
 
         </VBox>
-        <!-- ================= PENCARIAN ================= -->
 
-        <Label layoutX="390"
-               layoutY="20"
-               text="Cari Data"
-               style="-fx-font-size:14px;
-                      -fx-font-weight:bold;"/>
+    </top>
 
-        <TextField fx:id="txtCari"
-                   layoutX="390"
-                   layoutY="45"
-                   prefWidth="300"
-                   promptText="Cari ID Daycare / Nama Anak"/>
+    <!-- ================================================= -->
+    <!-- CONTENT -->
+    <!-- ================================================= -->
 
-        <Button fx:id="btnCari"
-                layoutX="700"
-                layoutY="45"
-                prefWidth="80"
-                text="Cari"
-                onAction="#cari"/>
+    <center>
 
-        <!-- ================= BUTTON ================= -->
+        <HBox spacing="20">
 
-        <HBox layoutX="20"
-              layoutY="470"
-              spacing="10">
+            <padding>
+                <Insets top="15"
+                        right="20"
+                        bottom="20"
+                        left="20"/>
+            </padding>
 
-            <Button fx:id="btnSimpan"
-                    text="Simpan"
-                    prefWidth="90"
-                    onAction="#simpan"/>
+            <!-- ============================================ -->
+            <!-- CARD KIRI -->
+            <!-- ============================================ -->
 
-            <Button fx:id="btnUbah"
-                    text="Ubah"
-                    prefWidth="90"
-                    onAction="#ubah"/>
+            <VBox prefWidth="360"
+                  spacing="15"
+                  style="
+                  -fx-background-color:white;
+                  -fx-background-radius:18;
+                  -fx-padding:22;
+                  -fx-effect:dropshadow(gaussian,
+                  rgba(0,0,0,0.12),
+                  18,0,0,2);">
 
-            <Button fx:id="btnHapus"
-                    text="Hapus"
-                    prefWidth="90"
-                    onAction="#hapus"/>
+                <children>
+
+                    <Label text="Data Transaksi Daycare"
+                           style="
+                           -fx-font-size:18;
+                           -fx-font-weight:bold;
+                           -fx-text-fill:#2563EB;"/>
+
+                    <Separator/>
+
+                    <GridPane hgap="10"
+                              vgap="12">
+
+                        <columnConstraints>
+                            <ColumnConstraints percentWidth="100"/>
+                        </columnConstraints>
+
+                        <children>
+
+                            <!-- ID DAYCARE -->
+
+                            <Label text="ID Daycare"
+                                   GridPane.rowIndex="0"
+                                   style="-fx-font-weight:bold;"/>
+
+                            <TextField fx:id="txtIDDaycare"
+                                       editable="false"
+                                       prefHeight="38"
+                                       GridPane.rowIndex="1"/>
+
+                            <!-- ANAK -->
+
+                            <Label text="Anak"
+                                   GridPane.rowIndex="2"
+                                   style="-fx-font-weight:bold;"/>
+
+                            <ComboBox fx:id="cmbAnak"
+                                      prefHeight="38"
+                                      promptText="Pilih Anak"
+                                      GridPane.rowIndex="3"/>
+
+                            <!-- PAKET -->
+
+                            <Label text="Paket Daycare"
+                                   GridPane.rowIndex="4"
+                                   style="-fx-font-weight:bold;"/>
+
+                            <ComboBox fx:id="cmbPaket"
+                                      prefHeight="38"
+                                      promptText="Pilih Paket Daycare"
+                                      GridPane.rowIndex="5"/>
+
+                            <!-- KARYAWAN -->
+
+                            <Label text="Karyawan"
+                                   GridPane.rowIndex="6"
+                                   style="-fx-font-weight:bold;"/>
+
+                            <ComboBox fx:id="cmbKaryawan"
+                                      prefHeight="38"
+                                      promptText="Pilih Karyawan"
+                                      GridPane.rowIndex="7"/>
+
+                            <!-- TANGGAL MULAI -->
+
+                            <Label text="Tanggal Mulai"
+                                   GridPane.rowIndex="8"
+                                   style="-fx-font-weight:bold;"/>
+
+                            <DatePicker fx:id="dpTanggalMulai"
+                                        prefHeight="38"
+                                        GridPane.rowIndex="9"/>
+
+                            <!-- TANGGAL SELESAI -->
+
+                            <Label text="Tanggal Selesai"
+                                   GridPane.rowIndex="10"
+                                   style="-fx-font-weight:bold;"/>
+
+                            <DatePicker fx:id="dpTanggalSelesai"
+                                        prefHeight="38"
+                                        GridPane.rowIndex="11"/>
+
+                            <!-- STATUS -->
+
+                            <Label text="Status Daycare"
+                                   GridPane.rowIndex="12"
+                                   style="-fx-font-weight:bold;"/>
+
+                            <ComboBox fx:id="cmbStatus"
+                                      prefHeight="38"
+                                      promptText="Pilih Status"
+                                      GridPane.rowIndex="13"/>
+
+                        </children>
+
+                    </GridPane>
+
+                    <Separator/>
+
+                    <GridPane hgap="10"
+                              vgap="10">
+
+                        <columnConstraints>
+
+                            <ColumnConstraints percentWidth="50"/>
+
+                            <ColumnConstraints percentWidth="50"/>
+
+                        </columnConstraints>
+
+                        <children>
+
+                            <!-- SIMPAN -->
+
+                            <Button fx:id="btnSimpan"
+                                    text="💾 Simpan"
+                                    onAction="#simpan"
+                                    prefHeight="42"
+                                    maxWidth="Infinity"
+                                    style="-fx-background-color:#22C55E;
+                       -fx-text-fill:white;
+                       -fx-font-weight:bold;
+                       -fx-background-radius:10;"/>
+
+                            <!-- UBAH -->
+
+                            <Button fx:id="btnUbah"
+                                    text="✏ Ubah"
+                                    onAction="#ubah"
+                                    prefHeight="42"
+                                    maxWidth="Infinity"
+                                    GridPane.columnIndex="1"
+                                    style="-fx-background-color:#F59E0B;
+                       -fx-text-fill:white;
+                       -fx-font-weight:bold;
+                       -fx-background-radius:10;"/>
+
+                            <!-- HAPUS -->
+
+                            <Button fx:id="btnHapus"
+                                    text="🗑 Hapus"
+                                    onAction="#hapus"
+                                    prefHeight="42"
+                                    maxWidth="Infinity"
+                                    GridPane.rowIndex="1"
+                                    style="-fx-background-color:#EF4444;
+                       -fx-text-fill:white;
+                       -fx-font-weight:bold;
+                       -fx-background-radius:10;"/>
+
+                            <!-- BATAL -->
+
+                            <Button fx:id="btnBatal"
+                                    text="↺ Batal"
+                                    onAction="#batal"
+                                    prefHeight="42"
+                                    maxWidth="Infinity"
+                                    GridPane.columnIndex="1"
+                                    GridPane.rowIndex="1"
+                                    style="-fx-background-color:#64748B;
+                       -fx-text-fill:white;
+                       -fx-font-weight:bold;
+                       -fx-background-radius:10;"/>
+
+                            <!-- KEMBALI -->
+
+                            <Button fx:id="btnKembali"
+                                    text="⬅ Kembali"
+                                    onAction="#kembali"
+                                    prefHeight="45"
+                                    maxWidth="Infinity"
+                                    GridPane.columnSpan="2"
+                                    GridPane.rowIndex="2"
+                                    style="-fx-background-color:#2563EB;
+                       -fx-text-fill:white;
+                       -fx-font-weight:bold;
+                       -fx-background-radius:10;"/>
+
+                        </children>
+
+                    </GridPane>
+
+                </children>
+
+            </VBox>
+
+            <!-- ============================================ -->
+            <!-- CARD KANAN -->
+            <!-- ============================================ -->
+
+            <VBox spacing="15"
+                  HBox.hgrow="ALWAYS"
+                  style="
+                  -fx-background-color:white;
+                  -fx-background-radius:18;
+                  -fx-padding:22;
+                  -fx-effect:dropshadow(gaussian,
+                  rgba(0,0,0,0.12),
+                  18,0,0,2);">
+
+                <children>
+
+                    <Label text="Daftar Transaksi Daycare"
+                           style="
+                           -fx-font-size:18;
+                           -fx-font-weight:bold;
+                           -fx-text-fill:#2563EB;"/>
+
+                    <Separator/>
+
+                    <!-- ================================================= -->
+                    <!-- SEARCH -->
+                    <!-- ================================================= -->
+
+                    <Label text="Cari Data"
+                           style="
+       -fx-font-size:14;
+       -fx-font-weight:bold;
+       -fx-text-fill:#334155;"/>
+
+                    <HBox spacing="10">
+
+                        <children>
+
+                            <TextField fx:id="txtCari"
+                                       promptText="Cari ID Daycare / Nama Anak..."
+                                       prefHeight="38"
+                                       HBox.hgrow="ALWAYS"/>
+
+                            <Button fx:id="btnCari"
+                                    text="🔍 Cari"
+                                    onAction="#cari"
+                                    prefWidth="100"
+                                    prefHeight="38"
+                                    style="
+                -fx-background-color:#2563EB;
+                -fx-text-fill:white;
+                -fx-font-weight:bold;
+                -fx-background-radius:10;"/>
+
+                        </children>
+
+                    </HBox>
+
+                    <Separator/>
+
+                    <!-- ================================================= -->
+                    <!-- TABLE -->
+                    <!-- ================================================= -->
+
+                    <TableView fx:id="tblTransaksi"
+                               VBox.vgrow="ALWAYS"
+                               prefHeight="520"
+                               style="
+           -fx-background-radius:12;
+           -fx-border-radius:12;
+           -fx-border-color:#E2E8F0;">
+
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                        </columnResizePolicy>
+
+                        <columns>
+
+                            <TableColumn fx:id="colIDDaycare"
+                                         text="ID"/>
+
+                            <TableColumn fx:id="colNamaAnak"
+                                         text="Nama Anak"/>
+
+                            <TableColumn fx:id="colKategori"
+                                         text="Kategori"/>
+
+                            <TableColumn fx:id="colJenisPaket"
+                                         text="Jenis Paket"/>
+
+                            <TableColumn fx:id="colKaryawan"
+                                         text="Karyawan"/>
+
+                            <TableColumn fx:id="colTanggalMulai"
+                                         text="Tgl Mulai"/>
+
+                            <TableColumn fx:id="colTanggalSelesai"
+                                         text="Tgl Selesai"/>
+
+                            <TableColumn fx:id="colStatus"
+                                         text="Status"/>
+
+                        </columns>
+
+                    </TableView>
+
+                    <Separator/>
+
+                    <!-- ================================================= -->
+                    <!-- FOOTER -->
+                    <!-- ================================================= -->
+
+                    <HBox alignment="CENTER_LEFT"
+                          spacing="15">
+
+                        <children>
+
+                            <Label text="Total Data :"
+                                   style="
+               -fx-font-weight:bold;
+               -fx-text-fill:#334155;"/>
+
+                            <Label fx:id="lblTotalData"
+                                   text="0"
+                                   style="
+               -fx-font-weight:bold;
+               -fx-text-fill:#1E293B;"/>
+
+                            <Pane HBox.hgrow="ALWAYS"/>
+
+                            <Label text="Status :"
+                                   style="
+               -fx-font-weight:bold;
+               -fx-text-fill:#334155;"/>
+
+                            <Label fx:id="lblStatus"
+                                   text="Siap Digunakan"
+                                   style="
+               -fx-font-weight:bold;
+               -fx-text-fill:#2563EB;"/>
+
+                        </children>
+
+                    </HBox>
+                </children>
+
+            </VBox>
 
         </HBox>
 
-        <HBox layoutX="20"
-              layoutY="515"
-              spacing="10">
+    </center>
 
-            <Button fx:id="btnBatal"
-                    text="Batal"
-                    prefWidth="90"
-                    onAction="#batal"/>
+</BorderPane>
 
-            <Button fx:id="btnKembali"
-                    text="Kembali"
-                    prefWidth="90"
-                    onAction="#kembali"/>
 
-        </HBox>
 
-        <!-- ================= TABLE ================= -->
-
-        <TableView fx:id="tblTransaksi"
-                   layoutX="390"
-                   layoutY="85"
-                   prefWidth="790"
-                   prefHeight="430">
-
-            <columns>
-
-                <TableColumn fx:id="colIDDaycare"
-                             text="ID"
-                             prefWidth="75"/>
-
-                <TableColumn fx:id="colNamaAnak"
-                             text="Nama Anak"
-                             prefWidth="140"/>
-
-                <TableColumn fx:id="colKategori"
-                             text="Kategori"
-                             prefWidth="100"/>
-
-                <TableColumn fx:id="colJenisPaket"
-                             text="Jenis Paket"
-                             prefWidth="110"/>
-
-                <TableColumn fx:id="colKaryawan"
-                             text="Karyawan"
-                             prefWidth="130"/>
-
-                <TableColumn fx:id="colTanggalMulai"
-                             text="Tgl Mulai"
-                             prefWidth="90"/>
-
-                <TableColumn fx:id="colTanggalSelesai"
-                             text="Tgl Selesai"
-                             prefWidth="90"/>
-
-                <TableColumn fx:id="colStatus"
-                             text="Status"
-                             prefWidth="90"/>
-
-            </columns>
-
-        </TableView>
-
-        <!-- ================= INFORMASI ================= -->
-
-        <Label layoutX="390"
-               layoutY="530"
-               text="Total Data :"
-               style="-fx-font-weight:bold;"/>
-
-        <Label fx:id="lblTotalData"
-               layoutX="465"
-               layoutY="530"
-               text="0"/>
-
-        <Label layoutX="600"
-               layoutY="530"
-               text="Status :"
-               style="-fx-font-weight:bold;"/>
-
-        <Label fx:id="lblStatus"
-               layoutX="655"
-               layoutY="530"
-               text="Siap Digunakan"/>
-
-    </children>
-
-</AnchorPane>

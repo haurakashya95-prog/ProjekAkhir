@@ -383,4 +383,6 @@ public class DashboardCaregiverController {
 
     }
 
+    public void setUserLogin(String nama, String role) {
+    }
 }

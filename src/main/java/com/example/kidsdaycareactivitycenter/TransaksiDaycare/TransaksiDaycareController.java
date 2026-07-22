@@ -268,9 +268,15 @@ public class TransaksiDaycareController {
             DBConnect db = new DBConnect();
 
             String sql =
-                    "SELECT ID_Paket " +
-                            "FROM Paket_Daycare " +
-                            "ORDER BY ID_Paket";
+                    """
+                    SELECT
+                        ID_Paket,
+                        Kategori_Daycare,
+                        Kategori_Usia,
+                        Jenis_Paket
+                    FROM Paket_Daycare
+                    ORDER BY ID_Paket
+                    """;
 
             db.pstat = db.conn.prepareStatement(sql);
 
@@ -281,6 +287,12 @@ public class TransaksiDaycareController {
                 cmbPaket.getItems().add(
 
                         db.result.getString("ID_Paket")
+                                + " - "
+                                + db.result.getString("Kategori_Daycare")
+                                + " - "
+                                + db.result.getString("Kategori_Usia")
+                                + " - "
+                                + db.result.getString("Jenis_Paket")
 
                 );
 
@@ -833,7 +845,7 @@ public class TransaksiDaycareController {
             Stage stage = (Stage) btnKembali.getScene().getWindow();
 
             Parent root = FXMLLoader.load(
-                    getClass().getResource("/com/example/kidsdaycareactivitycenter/DashboardAdmin/DashboardAdmin.fxml")
+                    getClass().getResource("/DashboardAdmin/DashboardAdmin.fxml")
             );
 
             stage.setScene(new Scene(root));

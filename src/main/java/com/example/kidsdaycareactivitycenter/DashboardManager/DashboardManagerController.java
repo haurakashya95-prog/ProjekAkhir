@@ -218,4 +218,7 @@ public class DashboardManagerController {
         a.setContentText(msg);
         a.showAndWait();
     }
+
+    public void setUserLogin(String nama, String role) {
+    }
 }
